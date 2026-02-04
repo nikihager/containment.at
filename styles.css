@@ -130,6 +130,31 @@ h1{
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}.hero__values{
+  margin-top: 18px;
+  text-align: center;
+}
+
+.hero__values-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:14px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.hero__values-list .is-strong{
+  color:var(--ink);
+  font-weight:800;
+}
+
+.hero__claim{
+  margin-top: 14px;
+  font-size: 16px;
+  color: var(--ink);
+  letter-spacing:.02em;
 }
 .hero__visual img{
   width: 420px;
@@ -198,9 +223,12 @@ h2{font-size:26px; margin:0 0 16px}
 .footer__links a:hover{text-decoration:underline}
 
 @media (max-width: 920px){
+  .brand img{ height: 64px; }
+  .topbar__inner{ padding: 6px 0; }
   .hero__grid{grid-template-columns:1fr}
   h1{font-size:38px}
   .cards{grid-template-columns:1fr}
   .twoCol{grid-template-columns:1fr}
   .hero__visual{min-height:340px}
+  .hero__visual img{ width: 320px; }
 }
