@@ -61,7 +61,6 @@ a{color:inherit; text-underline-offset:3px}
   border-radius:12px;
   font-weight:600;
 }
-}
 .nav a:hover{background:var(--soft); color:var(--ink)}
 
 .hero{padding:34px 0 22px}
