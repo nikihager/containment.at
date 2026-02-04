@@ -119,17 +119,17 @@ h1{
   justify-content: center;
 }
 .hero__visual img{
-  width: 500px;
-  height: 500px;
+  width: 420px;
+  height: 420px;
 
   /* echter Kreis */
-  border-radius: 50%;
+  border-radius: 70%;
   object-fit: cover;
 
   /* fotografischer Tiefenschatten */
   filter:
-    drop-shadow(0 6px 10px rgba(0,0,0,0.18))   /* naher Kontaktschatten */
-    drop-shadow(0 22px 48px rgba(0,0,0,0.12)); /* weicher Fernschatten */
+    drop-shadow(0 6px 10px rgba(0,0,0,0.32))   /* naher Kontaktschatten */
+    drop-shadow(0 22px 48px rgba(0,0,0,0.24)); /* weicher Fernschatten */
 
   display: block;
   background: none;
