@@ -120,16 +120,16 @@ h1{
 }
 .hero__visual img{
   width: 420px;
-  height: 420px;
+  height: auto;
 
-  /* echter Kreis */
-  border-radius: 70%;
-  object-fit: cover;
+  /* keine Maske, kein Beschnitt */
+  border-radius: 0;
+  object-fit: contain;
 
-  /* fotografischer Tiefenschatten */
+  /* leichter, fotografischer Schatten */
   filter:
-    drop-shadow(0 6px 10px rgba(0,0,0,0.32))   /* naher Kontaktschatten */
-    drop-shadow(0 22px 48px rgba(0,0,0,0.24)); /* weicher Fernschatten */
+    drop-shadow(0 6px 10px rgba(0,0,0,0.18))
+    drop-shadow(0 22px 48px rgba(0,0,0,0.12));
 
   display: block;
   background: none;
