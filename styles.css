@@ -20,7 +20,7 @@ body{
 }
 
 a{color:inherit; text-underline-offset:3px}
-.container{max-width:var(--max); margin:0 auto; padding:0 18px}
+.container{max-width:var(--max); margin:0 auto; padding:0 28px}
 
 .topbar{
   position:sticky; top:0; z-index:50;
@@ -28,33 +28,39 @@ a{color:inherit; text-underline-offset:3px}
   backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
 }
+
 .topbar__inner{
-  height: auto;              /* wichtig */
-  padding: 0;                /* kein vertikaler Innenabstand */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 6px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
 }
 .brand{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  line-height:0; /* kill baseline whitespace */
 }
-
 .brand img{
-  height: 120px;
-  width: auto;
-  display: block;
-  opacity: 1;
+  height: 96px;   /* führt */
+  width:auto;
+  display:block;
+  opacity:1;
 }
 .nav{
-  display:flex; gap:10px; flex-wrap:wrap;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
 }
 .nav a{
   text-decoration:none;
   color:var(--muted);
-  padding:8px 10px;
+  padding:10px 12px;
   border-radius:12px;
+  font-weight:600;
+}
 }
 .nav a:hover{background:var(--soft); color:var(--ink)}
 
