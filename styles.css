@@ -29,8 +29,8 @@ a{color:inherit; text-underline-offset:3px}
   border-bottom:1px solid var(--line);
 }
 .topbar__inner{
-  min-height: 50px;
-  padding: 5px 0;
+  height: auto;              /* wichtig */
+  padding: 0;                /* kein vertikaler Innenabstand */
   display: flex;
   align-items: center;
   justify-content: space-between;
