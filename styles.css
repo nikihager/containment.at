@@ -109,30 +109,30 @@ h1{
 .fineprint{margin-top:10px; font-size:12px; color:var(--muted)}
 
 .hero__visual{
-  background:none;
-  border:none;
-  box-shadow:none;
-  padding:0;
-  min-height:420px;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .hero__visual img{
-  width:min(420px,100%);
-  height:auto;
-  display:block;
+  width: 360px;
+  height: 360px;
 
-  /* organisch rund, kein Frame */
-  border-radius: 38%;
+  /* echter Kreis */
+  border-radius: 50%;
+  object-fit: cover;
 
-  /* freistehender, weicher Schatten */
+  /* fotografischer Tiefenschatten */
   filter:
-    drop-shadow(0 12px 24px rgba(12,15,20,.18))
-    drop-shadow(0 40px 80px rgba(12,15,20,.10));
+    drop-shadow(0 6px 10px rgba(0,0,0,0.18))   /* naher Kontaktschatten */
+    drop-shadow(0 22px 48px rgba(0,0,0,0.12)); /* weicher Fernschatten */
 
+  display: block;
   background: none;
-  padding: 0;
 }
 
 .section{padding:46px 0}
