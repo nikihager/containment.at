@@ -119,8 +119,8 @@ h1{
   justify-content: center;
 }
 .hero__visual img{
-  width: 420px;
-  height: 420px;
+  width: 600px;
+  height: 600px;
 
   /* echter Kreis */
   border-radius: 50%;
