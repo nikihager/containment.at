@@ -41,10 +41,10 @@ a{color:inherit; text-underline-offset:3px}
   text-decoration:none;
 }
 .brand img{
-  height: 34px;
+  height: 44px;
   width: auto;
-  display:block;
-  opacity: .92;
+  display: block;
+  opacity: .95;
 }
 .nav{
   display:flex; gap:10px; flex-wrap:wrap;
