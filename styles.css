@@ -64,11 +64,11 @@ a{color:inherit; text-underline-offset:3px}
 }
 .nav a:hover{background:var(--soft); color:var(--ink)}
 
-.hero{padding:42px 0 22px}
+.hero{padding:34px 0 22px}
 .hero__grid{
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap:26px;
+  grid-template-columns: 1.618fr 1fr; /* golden ratio */
+  gap:34px;
   align-items:center;
 }
 .kicker{
