@@ -123,7 +123,7 @@ h1{
   height: auto;
 
   /* keine Maske, kein Beschnitt */
-  border-radius: 0;
+  border-radius: 7;
   object-fit: contain;
 
   /* leichter, fotografischer Schatten */
