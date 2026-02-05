@@ -3,337 +3,383 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>containment.at – Containment</title>
-  <meta name="description" content="Containment: professionell gehaltener Wirkraum für Klarheit, Entscheidung und Übergänge." />
+
+  <title>containment.at – Professioneller Wirkraum für Klarheit & Entscheidung</title>
+  <meta name="description" content="Containment ist ein professionell gehaltener Wirkraum für Klarheit, Entscheidung und Übergänge – ohne Coaching-Prozessbindung, ohne Vereinfachung, oft in 60 Minuten." />
+
+  <!-- Canonical (später auf Ihre echte Domain umstellen) -->
+  <link rel="canonical" href="https://containmentat.netlify.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="containment.at – Klarheit. Entscheidung. Übergänge." />
+  <meta property="og:description" content="Professionell gehaltener Wirkraum für Komplexität, Emotion und Verantwortung – damit Entscheidung wieder möglich wird." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://containmentat.netlify.app/" />
+  <!-- Optional: sobald Sie ein Social-Share-Bild haben -->
+  <!-- <meta property="og:image" content="https://containmentat.netlify.app/assets/og.jpg" /> -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons (optional – falls vorhanden) -->
+  <!-- <link rel="icon" href="/assets/favicon.ico" /> -->
+  <!-- <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" /> -->
+
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
+  <!-- Skip link (A11y) -->
+  <a href="#main" class="sr-only">Zum Inhalt springen</a>
 
-<header class="topbar">
-  <div class="container topbar__inner">
-    <a class="brand" href="/">
-      <img src="/assets/containment-at-logo.svg" alt="containment.at">
-    </a>
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="Zur Startseite">
+        <img src="/assets/containment-at-logo.svg" alt="containment.at" />
+      </a>
 
-    <nav class="nav">
-      <a href="#angebote">Angebote</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#containment">Containment</a>
-      <a href="/impressum.html">Impressum</a>
-      <a href="/agb.html">AGB</a>
-    </nav>
-  </div>
-</header>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#angebote">Angebote</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#containment">Containment</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/agb.html">AGB</a>
+      </nav>
+    </div>
+  </header>
 
-<main>
+  <main id="main">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero__grid">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
 
-    <!-- LEFT -->
-    <div class="hero__copy">
+        <!-- LEFT -->
+        <div class="hero__copy">
 
-      <!-- STATE: DEFAULT -->
-      <div class="heroState is-active" id="heroText">
+          <!-- STATE: DEFAULT -->
+          <div class="heroState is-active" id="heroText" aria-hidden="false">
+            <h1 class="hero__values" id="hero-title">
+              <span class="fine">Struktur.</span><br>
+              <span class="fine">Präsenz.</span><br>
+              <span class="fine">Verantwortung.</span><br>
+              <span class="strong">Entscheidung ist Lösung.</span>
+            </h1>
 
-        <h1 class="hero__values">
-          <span class="fine">Struktur.</span><br>
-          <span class="fine">Präsenz.</span><br>
-          <span class="fine">Verantwortung.</span><br>
-          <span class="strong">Entscheidung ist LÖSUNG.</span>
-        </h1>
+            <p class="hero__claim">
+              containment.at ist der Raum,<br>
+              in dem Entscheidungen<br>
+              <strong>in 60 Minuten wieder klar &amp; möglich werden.</strong>
+            </p>
 
-        <p class="hero__claim">
-          containment.at ist der Raum,<br>
-          in dem Entscheidungen –<br>
-          <strong>in 60 Minuten wieder klar &amp; möglich werden.</strong>
-        </p>
+            <p class="lead">
+              Kein stundenlanges Coaching. Keine Therapie. Kein Sparring.<br>
+              Ein <strong>professionell gehaltener Wirkraum</strong>, in dem Klarheit entsteht –
+              ohne Komplexität zu reduzieren oder zu übergehen.<br>
+              <strong>Vereinbaren Sie Ihr Erstgespräch jetzt.</strong>
+            </p>
 
-        <p class="lead">
-          Kein stundenlanges Coaching. Keine Therapie. Kein Sparring.<br>
-          Ein <strong>professionell gehaltener Wirkraum</strong>, in dem Klarheit entsteht –
-          ohne Komplexität zu reduzieren oder zu übergehen.
-          <strong>Buche dein Erstgespräch jetzt.</strong>
-        </p>
+            <div class="ctaRow" role="group" aria-label="Kontaktmöglichkeiten">
+              <button class="btn" id="btnEmail" type="button">E-Mail</button>
+              <a class="btn btn--ghost" href="tel:+4369911881000">Anrufen</a>
+              <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
 
-        <div class="ctaRow">
-          <button class="btn" id="btnEmail" type="button">E-Mail</button>
-          <a class="btn btn--ghost" href="tel:+4369911881000">Anrufen</a>
-          <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+            <div class="heroMeta" aria-label="Rahmendaten">
+              <div class="heroMeta__line">Online · Zoom · Live in Wien</div>
+              <div class="heroMeta__line heroMeta__price"><strong>260,00&nbsp;€</strong> / Stunde</div>
+              <div class="heroMeta__line">Unternehmensberatung · Containment · Klarheit &amp; Struktur</div>
+            </div>
+          </div>
+
+          <!-- STATE: FORM -->
+          <div class="heroState" id="heroForm" aria-hidden="true">
+            <h2 class="heroForm__title">Kontakt per E-Mail</h2>
+
+            <p class="heroForm__promise">
+              containment.at ist der Raum,<br>
+              in dem Entscheidungen &amp; Lösungen<br>
+              <strong>in 60 Minuten wieder möglich werden.</strong>
+            </p>
+
+            <div class="heroPanel">
+              <!-- Netlify Forms: statisch im HTML, POST, data-netlify, hidden form-name -->
+              <form
+                class="contactForm"
+                name="kontakt"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+              >
+                <input type="hidden" name="form-name" value="kontakt" />
+                <!-- Optional: Danke-Seite -->
+                <input type="hidden" name="redirect" value="/danke.html" />
+
+                <!-- Honeypot -->
+                <p class="sr-only">
+                  <label>Bitte nicht ausfüllen: <input name="bot-field" /></label>
+                </p>
+
+                <div class="field">
+                  <label class="field__label" for="subject">Betreff</label>
+                  <input
+                    class="field__input"
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    placeholder="z. B. Erstgespräch – Entscheidung / Klarheit"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="message">Anliegen in wenigen Worten</label>
+                  <textarea
+                    class="field__textarea"
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Worum geht es gerade? Was muss in 60 Minuten klar werden?"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="formRow">
+                  <button class="btn" type="submit">Senden</button>
+                  <button class="btn btn--ghost" type="button" id="btnBack">Zurück</button>
+                </div>
+
+                <noscript>
+                  <p style="margin-top:12px;">
+                    JavaScript ist deaktiviert. Sie können auch direkt schreiben:
+                    <a href="mailto:nh@nikihager.com">nh@nikihager.com</a>
+                  </p>
+                </noscript>
+              </form>
+            </div>
+          </div>
+
         </div>
 
-        <div class="heroMeta">
-          <div class="heroMeta__line">Online · Zoom · Live in Wien</div>
-          <div class="heroMeta__line heroMeta__price"><strong>260,00 €</strong> / Stunde</div>
-          <div class="heroMeta__line">Unternehmensberatung · Containment · Klarheit &amp; Struktur</div>
+        <!-- RIGHT -->
+        <div class="hero__visual" aria-label="Portrait">
+          <!-- LCP-sicher: kein lazy, fetchpriority hoch, width/height gegen CLS -->
+          <!-- Optional: später Netlify Image CDN + srcset -->
+          <img
+            src="/assets/hero.png"
+            alt="Niki Hager – Containment"
+            width="720"
+            height="900"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
 
       </div>
+    </section>
 
-      <!-- STATE: FORM -->
-      <div class="heroState" id="heroForm">
+    <!-- CONTAINMENT – VERTIEFUNG -->
+    <section id="containment" class="section" aria-labelledby="containment-title">
+      <div class="container">
+        <h2 id="containment-title">Containment</h2>
 
-        <h2 class="heroForm__title">Kontakt per E-Mail</h2>
-
-        <p class="heroForm__promise">
-          containment.at ist der Raum,<br>
-          in dem Entscheidungen &amp; Lösungen<br>
-          <strong>in 60 Minuten wieder möglich werden.</strong>
+        <p>
+          <strong>Containment</strong> ist keine Methode. Kein Coaching. Keine Therapie.
+          Es ist ein <strong>professionell gehaltener Wirkraum</strong>,
+          in dem Komplexität, Emotion und Verantwortung gleichzeitig bestehen dürfen.
         </p>
 
-        <div class="heroPanel">
-          <form class="contactForm"
-                action="mailto:nh@nikihager.com"
-                method="post"
-                enctype="text/plain">
+        <p>
+          Genau dadurch wird Entscheidung wieder möglich.
+          Nicht durch Druck, nicht durch Vereinfachung –
+          sondern durch einen klaren Rahmen, der trägt.
+        </p>
 
-            <div class="field">
-              <label class="field__label" for="subject">Betreff</label>
-              <input class="field__input" id="subject" name="subject" type="text"
-                     placeholder="z. B. Erstgespräch – Entscheidung / Klarheit" required>
-            </div>
+        <p>
+          Ziel ist nicht Beruhigung, sondern
+          <strong>die Wiederherstellung von Entscheidungsfähigkeit</strong> –
+          oft innerhalb von 60 Minuten.
+        </p>
+      </div>
+    </section>
 
-            <div class="field">
-              <label class="field__label" for="message">Anliegen in wenigen Worten</label>
-              <textarea class="field__textarea" id="message" name="message" rows="6"
-                        placeholder="Worum geht es gerade? Was muss in 60 Minuten klar werden?" required></textarea>
-            </div>
+    <!-- DECISION LEVELS -->
+    <section class="section" aria-label="Formate">
+      <div class="container">
 
-            <div class="formRow">
-              <button class="btn" type="submit">Senden</button>
-              <button class="btn btn--ghost" type="button" id="btnBack">Zurück</button>
-            </div>
+        <article class="decisionBlock">
+          <h2>Boardroom Version</h2>
+          <p class="decisionIntro">
+            Für Situationen, in denen Entscheidungen Tragweite haben –
+            rechtlich, wirtschaftlich, strategisch.
+          </p>
+          <ul class="decisionList">
+            <li><strong>Komplexität darf vollständig bestehen.</strong> Nichts wird vereinfacht oder beschleunigt.</li>
+            <li><strong>Emotion und Risiko werden gehalten.</strong> Nicht ausgelagert, nicht ignoriert.</li>
+            <li><strong>Der Rahmen ist klar.</strong> Verantwortung bleibt dort, wo sie hingehört.</li>
+            <li><strong>Entscheidungen entstehen aus Übersicht.</strong> Nicht aus Druck.</li>
+            <li><strong>Effizienz statt Prozessbindung.</strong> Oft innerhalb von 60 Minuten.</li>
+          </ul>
+          <p class="decisionCTA">→ <a href="#angebote">Zu den Angeboten für Business &amp; Organisationen</a></p>
+        </article>
 
-          </form>
+        <article class="decisionBlock">
+          <h2>Executive Version</h2>
+          <p class="decisionIntro">
+            Für CEOs, Führungskräfte und Entscheider,
+            die Verantwortung nicht delegieren können.
+          </p>
+          <ul class="decisionList">
+            <li><strong>Ein professionell gehaltener Raum.</strong> Keine Methode, kein Coaching.</li>
+            <li><strong>Übertragung von Spannung und Prozess.</strong> Der Entscheider wird entlastet.</li>
+            <li><strong>Klarheit statt Meinungen.</strong> Keine Ratschläge, keine Konzepte.</li>
+            <li><strong>Entscheidungsfähigkeit als Ziel.</strong> Nicht Beruhigung.</li>
+            <li><strong>Wirksam, präzise, effizient.</strong> Oft innerhalb von 60 Minuten.</li>
+          </ul>
+          <p class="decisionCTA">→ <a href="#angebote">Zu den Executive-Angeboten</a></p>
+        </article>
+
+        <article class="decisionBlock">
+          <h2>Private Leadership Version</h2>
+          <p class="decisionIntro">
+            Für Menschen in Verantwortung,
+            wenn berufliche und persönliche Ebenen sich nicht mehr trennen lassen.
+          </p>
+          <ul class="decisionList">
+            <li><strong>Beziehung, Familie, Beruf im selben Raum.</strong> Ohne Priorisierung von außen.</li>
+            <li><strong>Krise, Trennung, Neuorientierung.</strong> Gehalten statt analysiert.</li>
+            <li><strong>Emotion darf da sein.</strong> Ohne den Prozess zu dominieren.</li>
+            <li><strong>Der nächste Schritt wird klar.</strong> Tragfähig, nicht impulsiv.</li>
+            <li><strong>Entscheidung aus innerer Gewissheit.</strong> Nicht aus Erschöpfung.</li>
+          </ul>
+          <p class="decisionCTA">→ <a href="#angebote">Zu den persönlichen Containment-Angeboten</a></p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ANGEBOTE -->
+    <section id="angebote" class="section section--soft" aria-labelledby="angebote-title">
+      <div class="container">
+        <h2 id="angebote-title">Angebote</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Business Containment</h3>
+            <p>Für Entscheidung, Führung und Verantwortung im professionellen Kontext.</p>
+            <p>
+              Führungsthemen · Unternehmens- &amp; Gruppenkontexte · Kündigung (aktiv / passiv) ·
+              Neuorientierung · Jobwechsel · Eskalationen
+            </p>
+            <p style="margin-top:10px;">
+              <a href="#hero-title" class="js-open-email">Erstgespräch anfragen</a>
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Persönliches Containment</h3>
+            <p>Für Beziehung, Familie, Beruf und persönliche Übergänge.</p>
+            <p>
+              Beziehung &amp; Trennung · Kinder &amp; Verantwortung · berufliche Krise ·
+              Trauer &amp; Verlust · Neuorientierung
+            </p>
+            <p style="margin-top:10px;">
+              <a href="#hero-title" class="js-open-email">Kontakt aufnehmen</a>
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Gruppen &amp; Organisationen</h3>
+            <p>Für Systeme, Teams und kollektive Entscheidungsräume.</p>
+            <p>
+              Aufstellungsarbeit (online &amp; offline) · Team-Containment ·
+              mehrstündige Prozesse · Organisationsentwicklung
+            </p>
+            <p style="margin-top:10px;">
+              <a href="#hero-title" class="js-open-email">Anfrage stellen</a>
+            </p>
+          </article>
         </div>
 
       </div>
+    </section>
 
-    </div>
+    <!-- ABLAUF -->
+    <section id="ablauf" class="section" aria-labelledby="ablauf-title">
+      <div class="container">
+        <h2 id="ablauf-title">Ablauf</h2>
 
-    <!-- RIGHT -->
-    <div class="hero__visual">
-      <img src="/assets/hero.png" alt="Niki Hager – Containment">
-    </div>
+        <div class="cards">
+          <article class="card">
+            <h3>1 · Auftrag &amp; Rahmen</h3>
+            <p>Klärung von Kontext, Ziel und Verantwortung.</p>
+          </article>
+          <article class="card">
+            <h3>2 · Containment</h3>
+            <p>Der Raum hält Komplexität, Emotion und Prozess – ohne Druck.</p>
+          </article>
+          <article class="card">
+            <h3>3 · Entscheidung</h3>
+            <p>Verdichtung auf Klarheit, Richtung und nächste Schritte.</p>
+          </article>
+        </div>
 
-  </div>
-</section>
+      </div>
+    </section>
 
-<!-- CONTAINMENT – VERTIEFUNG -->
-<section id="containment" class="section">
-  <div class="container">
+    <footer class="footer" role="contentinfo">
+      <div class="container footer__inner">
+        <div>© nikihager.com</div>
+        <div class="footer__links">
+          <a href="/impressum.html">Impressum</a>
+          <a href="/agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
 
-    <h2>Containment</h2>
+  </main>
 
-    <p>
-      <strong>Containment</strong> ist keine Methode. Kein Coaching. Keine Therapie.
-      Es ist ein <strong>professionell gehaltener Wirkraum</strong>,
-      in dem Komplexität, Emotion und Verantwortung gleichzeitig bestehen dürfen.
-    </p>
+  <script>
+    (function () {
+      const btnEmail = document.getElementById("btnEmail");
+      const btnBack  = document.getElementById("btnBack");
+      const heroText = document.getElementById("heroText");
+      const heroForm = document.getElementById("heroForm");
 
-    <p>
-      Genau dadurch wird Entscheidung wieder möglich.
-      Nicht durch Druck, nicht durch Vereinfachung –
-      sondern durch einen klaren Rahmen, der trägt.
-    </p>
+      function showForm() {
+        heroText.classList.remove("is-active");
+        heroForm.classList.add("is-active");
+        heroText.setAttribute("aria-hidden", "true");
+        heroForm.setAttribute("aria-hidden", "false");
+        // Fokus in das erste Feld
+        const first = heroForm.querySelector("input, textarea, button");
+        if (first) first.focus();
+      }
 
-    <p>
-      Ziel ist nicht Beruhigung, sondern
-      <strong>die Wiederherstellung von Entscheidungsfähigkeit</strong> –
-      oft innerhalb von 60 Minuten.
-    </p>
+      function showText() {
+        heroForm.classList.remove("is-active");
+        heroText.classList.add("is-active");
+        heroForm.setAttribute("aria-hidden", "true");
+        heroText.setAttribute("aria-hidden", "false");
+        if (btnEmail) btnEmail.focus();
+      }
 
-  </div>
-</section>
-  <!-- DECISION LEVELS -->
-<section class="section">
-  <div class="container">
+      if (btnEmail && btnBack && heroText && heroForm) {
+        btnEmail.addEventListener("click", showForm);
+        btnBack.addEventListener("click", showText);
+      }
 
-    <!-- BOARDROOM VERSION -->
-    <article class="decisionBlock">
-      <h2>Boardroom Version</h2>
-
-      <p class="decisionIntro">
-        Für Situationen, in denen Entscheidungen Tragweite haben –
-        rechtlich, wirtschaftlich, strategisch.
-      </p>
-
-      <ul class="decisionList">
-        <li><strong>Komplexität darf vollständig bestehen.</strong> Nichts wird vereinfacht oder beschleunigt.</li>
-        <li><strong>Emotion und Risiko werden gehalten.</strong> Nicht ausgelagert, nicht ignoriert.</li>
-        <li><strong>Der Rahmen ist klar.</strong> Verantwortung bleibt dort, wo sie hingehört.</li>
-        <li><strong>Entscheidungen entstehen aus Übersicht.</strong> Nicht aus Druck.</li>
-        <li><strong>Effizienz statt Prozessbindung.</strong> Oft innerhalb von 60 Minuten.</li>
-      </ul>
-
-      <p class="decisionCTA">
-        → <a href="#angebote">Zu den Angeboten für Business & Organisationen</a>
-      </p>
-    </article>
-
-
-    <!-- EXECUTIVE VERSION -->
-    <article class="decisionBlock">
-      <h2>Executive Version</h2>
-
-      <p class="decisionIntro">
-        Für CEOs, Führungskräfte und Entscheider,
-        die Verantwortung nicht delegieren können.
-      </p>
-
-      <ul class="decisionList">
-        <li><strong>Ein professionell gehaltener Raum.</strong> Keine Methode, kein Coaching.</li>
-        <li><strong>Übertragung von Spannung und Prozess.</strong> Der Entscheider wird entlastet.</li>
-        <li><strong>Klarheit statt Meinungen.</strong> Keine Ratschläge, keine Konzepte.</li>
-        <li><strong>Entscheidungsfähigkeit als Ziel.</strong> Nicht Beruhigung.</li>
-        <li><strong>Wirksam, präzise, effizient.</strong> Oft innerhalb von 60 Minuten.</li>
-      </ul>
-
-      <p class="decisionCTA">
-        → <a href="#angebote">Zu den Executive-Angeboten</a>
-      </p>
-    </article>
-
-
-    <!-- PRIVATE LEADERSHIP VERSION -->
-    <article class="decisionBlock">
-      <h2>Private Leadership Version</h2>
-
-      <p class="decisionIntro">
-        Für Menschen in Verantwortung,
-        wenn berufliche und persönliche Ebenen sich nicht mehr trennen lassen.
-      </p>
-
-      <ul class="decisionList">
-        <li><strong>Beziehung, Familie, Beruf im selben Raum.</strong> Ohne Priorisierung von außen.</li>
-        <li><strong>Krise, Trennung, Neuorientierung.</strong> Gehalten statt analysiert.</li>
-        <li><strong>Emotion darf da sein.</strong> Ohne den Prozess zu dominieren.</li>
-        <li><strong>Der nächste Schritt wird klar.</strong> Tragfähig, nicht impulsiv.</li>
-        <li><strong>Entscheidung aus innerer Gewissheit.</strong> Nicht aus Erschöpfung.</li>
-      </ul>
-
-      <p class="decisionCTA">
-        → <a href="#angebote">Zu den persönlichen Containment-Angeboten</a>
-      </p>
-    </article>
-
-  </div>
-</section>
-
-<!-- ANGEBOTE -->
-<section id="angebote" class="section section--soft">
-  <div class="container">
-
-    <h2>Angebote</h2>
-
-    <div class="cards">
-
-      <!-- BUSINESS -->
-      <article class="card">
-        <h3>Business Containment</h3>
-        <p>
-          Für Entscheidung, Führung und Verantwortung im professionellen Kontext.
-        </p>
-        <p>
-          Führungsthemen · Unternehmens- &amp; Gruppenkontexte ·
-          Kündigung (aktiv / passiv) · Neuorientierung · Jobwechsel · Eskalationen
-        </p>
-        <p style="margin-top:10px;">
-          <a href="mailto:nh@nikihager.com?subject=Business%20Containment">Erstgespräch anfragen</a>
-        </p>
-      </article>
-
-      <!-- PERSÖNLICH -->
-      <article class="card">
-        <h3>Persönliches Containment</h3>
-        <p>
-          Für Beziehung, Familie, Beruf und persönliche Übergänge.
-        </p>
-        <p>
-          Beziehung &amp; Trennung · Kinder &amp; Verantwortung ·
-          berufliche Krise · Trauer &amp; Verlust · Neuorientierung
-        </p>
-        <p style="margin-top:10px;">
-          <a href="mailto:nh@nikihager.com?subject=Pers%C3%B6nliches%20Containment">Kontakt aufnehmen</a>
-        </p>
-      </article>
-
-      <!-- GRUPPEN -->
-      <article class="card">
-        <h3>Gruppen &amp; Organisationen</h3>
-        <p>
-          Für Systeme, Teams und kollektive Entscheidungsräume.
-        </p>
-        <p>
-          Aufstellungsarbeit (online &amp; offline) · Team-Containment ·
-          mehrstündige Prozesse · Organisationsentwicklung
-        </p>
-        <p style="margin-top:10px;">
-          <a href="mailto:nh@nikihager.com?subject=Gruppen%20Containment">Anfrage stellen</a>
-        </p>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ABLAUF -->
-<section id="ablauf" class="section">
-  <div class="container">
-
-    <h2>Ablauf</h2>
-
-    <div class="cards">
-      <article class="card">
-        <h3>1 · Auftrag &amp; Rahmen</h3>
-        <p>Klärung von Kontext, Ziel und Verantwortung.</p>
-      </article>
-
-      <article class="card">
-        <h3>2 · Containment</h3>
-        <p>Der Raum hält Komplexität, Emotion und Prozess – ohne Druck.</p>
-      </article>
-
-      <article class="card">
-        <h3>3 · Entscheidung</h3>
-        <p>Verdichtung auf Klarheit, Richtung und nächste Schritte.</p>
-      </article>
-    </div>
-
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer__inner">
-    <div>© nikihager.com</div>
-    <div class="footer__links">
-      <a href="/impressum.html">Impressum</a>
-      <a href="/agb.html">AGB</a>
-    </div>
-  </div>
-</footer>
-
-</main>
-
-<script>
-  const btnEmail = document.getElementById("btnEmail");
-  const btnBack  = document.getElementById("btnBack");
-  const heroText = document.getElementById("heroText");
-  const heroForm = document.getElementById("heroForm");
-
-  btnEmail.addEventListener("click", () => {
-    heroText.classList.remove("is-active");
-    heroForm.classList.add("is-active");
-  });
-
-  btnBack.addEventListener("click", () => {
-    heroForm.classList.remove("is-active");
-    heroText.classList.add("is-active");
-  });
-</script>
-
+      // Links in den Cards öffnen das Formular (optional)
+      document.querySelectorAll(".js-open-email").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          showForm();
+          // sanft nach oben, falls nötig
+          document.getElementById("hero-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
