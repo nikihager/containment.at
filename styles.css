@@ -1,4 +1,48 @@
-:root{
+/* ==========================
+   Design Tokens (v1)
+   Weißraum / Ruhe / Autorität
+   ========================== */
+:root {
+  /* Neutrals (white-on-white basis) */
+  --c-bg: #f7f5f1;          /* Haupt-Hintergrund (warm, nicht hart) */
+  --c-surface: #fbfaf8;     /* Karten/Flächen */
+  --c-surface-2: #ffffff;   /* gezieltes „reines Weiß“ (sparsam) */
+
+  /* Ink */
+  --c-ink: #1d1b18;
+  --c-ink-muted: #4a453f;
+
+  /* Lines */
+  --c-line: rgba(29, 27, 24, 0.12);
+  --c-line-soft: rgba(29, 27, 24, 0.08);
+
+  /* Accent (Gold-Linie) */
+  --c-accent: #c7a06a;
+
+  /* Typography */
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+
+  --fs-hero: clamp(2.4rem, 4vw, 3.6rem);
+  --fs-h2: clamp(1.6rem, 2.2vw, 2.2rem);
+  --fs-body: 1rem;
+  --lh-tight: 1.08;
+  --lh: 1.45;
+
+  /* Spacing */
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+
+  /* Radius + shadow (sehr subtil) */
+  --r: 18px;
+  --r-lg: 26px;
+  --shadow-1: 0 12px 40px rgba(0,0,0,0.06);
+}:root{
   --bg:#ffffff;
   --ink:#0c0f14;
   --muted:#5b667a;
