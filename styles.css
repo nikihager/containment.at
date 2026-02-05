@@ -7,6 +7,9 @@
   --radius:18px;
   --shadow:0 14px 40px rgba(12,15,20,.10);
   --max:1120px;
+
+  /* BMW-artiges Grau für die 3 feinen Zeilen */
+  --heroGrey:#6b6f78;
 }
 
 /* Base */
@@ -31,20 +34,20 @@ a{color:inherit; text-underline-offset:3px}
   border-bottom:1px solid var(--line);
 }
 .topbar__inner{
-  padding:8px 0;                 /* kompakter */
+  padding:6px 0;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:22px;
 }
 .brand{
   display:flex;
   align-items:center;
   text-decoration:none;
-  line-height:0; /* kill baseline whitespace */
+  line-height:0;
 }
 .brand img{
-  height:68px;                    /* subtil führend */
+  height:76px;
   width:auto;
   display:block;
 }
@@ -52,7 +55,7 @@ a{color:inherit; text-underline-offset:3px}
 /* Nav */
 .nav{
   display:flex;
-  gap:12px;
+  gap:14px;
   flex-wrap:wrap;
   align-items:center;
 }
@@ -66,77 +69,94 @@ a{color:inherit; text-underline-offset:3px}
 .nav a:hover{background:var(--soft); color:var(--ink)}
 
 /* Hero */
-.hero{padding:28px 0 22px}        /* weniger Weißraum oben */
+.hero{padding:30px 0 20px}
 .hero__grid{
   display:grid;
-  grid-template-columns: 1.618fr 1fr; /* golden ratio */
+  grid-template-columns: 1.618fr 1fr; /* golden ratio feel */
   gap:34px;
   align-items:center;
 }
 
-/* Headline block (values) */
+/* Toggle states */
+.heroState{display:none}
+.heroState.is-active{display:block}
+
+/* Values / Headline */
 .hero__values{
-  margin:0 0 12px;
-  line-height:1.02;
-  letter-spacing:-0.02em;
-  font-size: clamp(44px, 4.8vw, 72px); /* saubere Skalierung */
+  font-size:40px;     /* kleiner, ruhiger */
+  line-height:1.08;
+  margin:0 0 10px;
+  letter-spacing:-0.01em;
 }
 .hero__values .fine{
   font-weight:520;
-  color: rgba(12,15,20,.58);      /* zarter */
+  color:var(--heroGrey);
 }
 .hero__values .strong{
   font-weight:900;
-  color: var(--ink);
+  color:var(--ink);
 }
 
 /* Claim */
 .hero__claim{
-  margin:8px 0 14px;
-  font-size:18px;
+  margin:6px 0 12px;
+  font-size:16px;
   color:var(--ink);
   letter-spacing:.01em;
-  max-width:62ch;
 }
+.hero__claim strong{font-weight:800}
 
 /* Lead */
 .lead{
-  font-size:16px;                 /* leicht kleiner -> wirkt hochwertiger */
+  font-size:16px;
   color:var(--muted);
-  margin:0 0 16px;
-  max-width:70ch;
-  line-height:1.7;
+  margin:0 0 14px;
+  max-width:62ch;
 }
 
 /* CTA */
-.ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin:16px 0 12px}
+.ctaRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:12px 0 10px;
+}
 .btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:13px 16px;              /* etwas kräftiger */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 14px;
   border-radius:14px;
   border:1px solid var(--ink);
   background:var(--ink);
   color:var(--bg);
   text-decoration:none;
-  font-weight:780;
+  font-weight:650;
   cursor:pointer;
-  transition: transform .12s ease;
 }
-.btn--ghost{background:transparent; color:var(--ink); border-color:var(--line); font-weight:650}
+.btn--ghost{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--line);
+}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
 
-/* Hero Toggle States */
-.heroState{display:none}
-.heroState.is-active{display:block}
-
-/* Hero Contact Panel (opens on E-Mail click) */
-.heroPanel{
+/* Meta block */
+.heroMeta{
   margin-top:12px;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:14px;
-  background:linear-gradient(180deg, rgba(12,15,20,.03), rgba(12,15,20,.00));
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+.heroMeta__line{margin:2px 0}
+.heroMeta__price strong{color:var(--ink)}
+
+/* Form */
+.heroForm__title{
+  margin:0 0 10px;
+  font-size:22px;
+  letter-spacing:-0.01em;
 }
 .heroForm__promise{
   margin:0 0 12px;
@@ -144,6 +164,13 @@ a{color:inherit; text-underline-offset:3px}
   color:var(--ink);
   letter-spacing:.01em;
   line-height:1.35;
+}
+.heroPanel{
+  margin-top:12px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px;
+  background:linear-gradient(180deg, rgba(12,15,20,.03), rgba(12,15,20,.00));
 }
 .contactForm{display:flex; flex-direction:column; gap:12px}
 .field{display:flex; flex-direction:column; gap:6px}
@@ -161,22 +188,11 @@ a{color:inherit; text-underline-offset:3px}
   background:#fff;
   outline:none;
 }
-.field__textarea{min-height:110px; resize:vertical}
 .field__input:focus, .field__textarea:focus{
   border-color: rgba(12,15,20,.28);
   box-shadow: 0 0 0 4px rgba(12,15,20,.06);
 }
 .formRow{display:flex; gap:10px; flex-wrap:wrap}
-
-/* Hero meta (replaces mail/tel/location block) */
-.heroMeta{
-  margin-top:12px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.55;
-}
-.heroMeta__line{margin:2px 0}
-.heroMeta__price strong{color:var(--ink)}
 
 /* Hero visual */
 .hero__visual{
@@ -186,17 +202,18 @@ a{color:inherit; text-underline-offset:3px}
   padding:0;
   min-height:420px;
   display:flex;
-  align-items:center;             /* besserer visueller Sitz */
+  align-items:flex-end;
   justify-content:center;
 }
 .hero__visual img{
-  width: clamp(320px, 34vw, 520px);
+  width:360px; /* Bild etwas kleiner */
   height:auto;
   border-radius:0;
   object-fit:contain;
-  filter:
-    drop-shadow(0 8px 14px rgba(0,0,0,0.18))
-    drop-shadow(0 26px 60px rgba(0,0,0,0.10));
+
+  /* Schatten weg */
+  filter:none;
+
   display:block;
   background:none;
 }
@@ -262,14 +279,12 @@ h2{font-size:26px; margin:0 0 16px}
 @media (max-width: 920px){
   .container{padding:0 18px}
 
-  .brand img{height:54px}
-  .topbar__inner{padding:8px 0}
+  .brand img{height:56px}
 
   .hero__grid{grid-template-columns:1fr}
-  .hero__values{font-size: clamp(38px, 9vw, 52px)}
-
-  .hero__visual{min-height:320px; order:-1}
-  .hero__visual img{width: min(420px, 86vw)}
+  .hero__values{font-size:34px}
+  .hero__visual{min-height:340px}
+  .hero__visual img{width:320px}
 
   .cards{grid-template-columns:1fr}
   .twoCol{grid-template-columns:1fr}
