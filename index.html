@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>containment.at – The Art of Containment</title>
   <meta name="description" content="Containment ist ein professionell gehaltener Raum, in dem Komplexität, Emotion und Verantwortung gleichzeitig bestehen dürfen. Wieder klar & entscheidungsfähig – in 60 Minuten." />
+
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
   <a class="sr-only" href="#main">Zum Inhalt springen</a>
 
-  <!-- PAGE SHEET (Mockup: zentriertes Blatt) -->
+  <!-- Mockup: zentriertes „Papier“ -->
   <div class="page">
+
     <header class="topbar" role="banner">
       <div class="topbar__inner">
+
+        <!-- Mockup Brand: Quadrat-Mark + zweizeilig -->
         <a class="brand" href="/" aria-label="Zur Startseite">
           <span class="brand__mark" aria-hidden="true"></span>
           <span class="brand__text">
@@ -23,7 +28,11 @@
           </span>
         </a>
 
-        <button class="navToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
+        <!-- Mobile toggle -->
+        <button class="navToggle" type="button"
+                aria-label="Menü öffnen"
+                aria-expanded="false"
+                aria-controls="nav">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -35,6 +44,7 @@
           <a href="#ablauf">Ablauf</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
+
       </div>
     </header>
 
@@ -43,18 +53,19 @@
       <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero__grid">
+
           <div class="hero__copy">
-            <h1 id="hero-title" class="hero__title">
-              Struktur.<br>
-              Präsenz.<br>
-              Verantwortung.<br>
+            <h1 class="hero__title" id="hero-title">
+              Struktur.<br />
+              Präsenz.<br />
+              Verantwortung.<br />
               Entscheidung.
             </h1>
 
             <div class="rule" aria-hidden="true"></div>
 
             <p class="hero__claim">
-              Wenn es zu viel wird: Ich halte den Raum,<br>
+              Wenn es zu viel wird: Ich halte den Raum,<br />
               bis wieder Ordnung möglich ist.
             </p>
 
@@ -62,26 +73,34 @@
               <strong>260&nbsp;€</strong> / Stunde <span class="sep">·</span> Wien &amp; Remote
             </p>
 
-            <!-- Mobile CTA Row wie im Mockup -->
+            <!-- Mockup Mobile Buttons -->
             <div class="hero__actions" aria-label="Kontaktoptionen">
-              <a class="btn btn--ghost" href="tel:+4369911881000">Call</a>
-              <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
-              <button class="btn btn--ghost" type="button" id="openFormTop">Formular</button>
+              <a class="btn btn--pill" href="tel:+4369911881000">Call</a>
+              <a class="btn btn--pill" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+              <button class="btn btn--pill" type="button" id="openFormTop">Formular</button>
             </div>
           </div>
 
           <div class="hero__visual" aria-label="Portrait">
-            <img src="/assets/hero.png" alt="Niki Hager" width="720" height="900" decoding="async" fetchpriority="high" />
+            <img
+              src="/assets/hero.png"
+              alt="Niki Hager"
+              width="720"
+              height="900"
+              decoding="async"
+              fetchpriority="high"
+            />
           </div>
+
         </div>
       </section>
 
       <!-- CONTAINMENT -->
       <section id="containment" class="section section--center" aria-labelledby="containment-title">
-        <h2 id="containment-title" class="h2">Containment</h2>
+        <h2 class="h2" id="containment-title">Containment</h2>
 
         <p class="lede">
-          Containment ist ein professionell gehaltener Raum,<br>
+          Containment ist ein professionell gehaltener Raum,<br />
           in dem Komplexität, Emotion und Verantwortung gleichzeitig bestehen dürfen.
         </p>
 
@@ -92,51 +111,64 @@
 
       <!-- ANWENDUNGSFELDER -->
       <section id="felder" class="section" aria-labelledby="felder-title">
-        <h2 id="felder-title" class="h2 h2--center">Anwendungsfelder</h2>
+        <h2 class="h2 h2--center" id="felder-title">Anwendungsfelder</h2>
 
         <div class="cards">
+
           <article class="card">
-            <h3>Business &amp;<br>Führung</h3>
-            <p>Entscheidung unter Druck.</p>
-            <p>Verantwortung für Menschen &amp; Organisationen.</p>
-            <p>Kündigung (aktiv / passiv).</p>
-            <p>Neuorientierung, Übergänge.</p>
-            <a class="card__btn" href="#kontakt">Business-Anliegen klären →</a>
+            <h3>Business &amp;<br />Führung</h3>
+            <ul class="list">
+              <li>Entscheidung unter Druck.</li>
+              <li>Verantwortung für Menschen &amp; Organisationen.</li>
+              <li>Kündigung (aktiv / passiv).</li>
+              <li>Neuorientierung, Übergänge.</li>
+            </ul>
+            <a class="card__btn" href="#kontakt">Business-Anliegen klären <span aria-hidden="true">›</span></a>
           </article>
 
           <article class="card">
             <h3>Private Leadership</h3>
-            <p>Beziehung &amp; Familie.</p>
-            <p>Trennung, Krankheit, Trauer.</p>
-            <p>Berufliche Umbrüche.</p>
-            <p>Innere Überforderung trotz Funktionieren.</p>
-            <a class="card__btn" href="#kontakt">Privates klären →</a>
+            <ul class="list">
+              <li>Beziehung &amp; Familie.</li>
+              <li>Trennung, Krankheit, Trauer.</li>
+              <li>Berufliche Umbrüche.</li>
+              <li>Innere Überforderung trotz Funktionieren.</li>
+            </ul>
+            <a class="card__btn" href="#kontakt">Privates klären <span aria-hidden="true">›</span></a>
           </article>
 
           <article class="card">
-            <h3>Organisation<br>&amp; Systeme</h3>
-            <p>Organisationen &amp; Teams.</p>
-            <p>Aufstellungsarbeit (online / live).</p>
-            <p>Mehrstündige Prozesse.</p>
-            <p>Struktur &amp; Entscheidungsfähigkeit im System.</p>
-            <a class="card__btn" href="#kontakt">Organisationen klären →</a>
+            <h3>Organisation<br />&amp; Systeme</h3>
+            <ul class="list">
+              <li>Organisationen &amp; Teams.</li>
+              <li>Aufstellungsarbeit (online / live).</li>
+              <li>Mehrstündige Prozesse.</li>
+              <li>Struktur &amp; Entscheidungsfähigkeit im System.</li>
+            </ul>
+            <a class="card__btn" href="#kontakt">Organisationen klären <span aria-hidden="true">›</span></a>
           </article>
+
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- CTA / KONTAKT -->
       <section id="kontakt" class="section section--center" aria-labelledby="kontakt-title">
-        <h2 id="kontakt-title" class="h2">Wenn Sie spüren.</h2>
+        <h2 class="h2" id="kontakt-title">Wenn Sie spüren.</h2>
         <p class="lede">dass es Zeit ist, wieder klar zu werden:</p>
 
-        <button class="btn btn--cta" type="button" id="openForm">Kontaktieren Sie mich. Ein Satz genügt.</button>
+        <button class="btn btn--cta" type="button" id="openForm">
+          Kontaktieren Sie mich. Ein Satz genügt.
+        </button>
 
-        <!-- Form (Netlify) – hidden, wird per Button geöffnet -->
+        <!-- Kontaktformular (Netlify) -->
         <div class="contactPanel" id="contactPanel" hidden>
           <form class="form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="kontakt" />
             <input type="hidden" name="redirect" value="/danke.html" />
-            <p class="sr-only"><label>Bitte nicht ausfüllen: <input name="bot-field" /></label></p>
+
+            <p class="sr-only">
+              <label>Bitte nicht ausfüllen: <input name="bot-field" /></label>
+            </p>
 
             <label class="field">
               <span>Name</span>
@@ -155,7 +187,7 @@
 
             <div class="form__row">
               <button class="btn" type="submit">Senden</button>
-              <button class="btn btn--ghost" type="button" id="closeForm">Schließen</button>
+              <button class="btn btn--pill" type="button" id="closeForm">Schließen</button>
             </div>
           </form>
         </div>
@@ -178,13 +210,13 @@
   <script>
     (function(){
       // Mobile nav
-      const t = document.querySelector(".navToggle");
-      const n = document.getElementById("nav");
-      if (t && n){
-        t.addEventListener("click", () => {
-          const open = t.getAttribute("aria-expanded") === "true";
-          t.setAttribute("aria-expanded", String(!open));
-          n.classList.toggle("is-open", !open);
+      const toggle = document.querySelector(".navToggle");
+      const nav = document.getElementById("nav");
+      if (toggle && nav){
+        toggle.addEventListener("click", () => {
+          const open = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!open));
+          nav.classList.toggle("is-open", !open);
         });
       }
 
@@ -194,8 +226,14 @@
       const close = document.getElementById("closeForm");
       const panel = document.getElementById("contactPanel");
 
-      function show(){ panel.hidden = false; panel.querySelector("input,textarea,button")?.focus(); }
-      function hide(){ panel.hidden = true; openA?.focus(); }
+      function show(){
+        panel.hidden = false;
+        panel.querySelector("input,textarea,button")?.focus();
+      }
+      function hide(){
+        panel.hidden = true;
+        openA?.focus();
+      }
 
       openA?.addEventListener("click", show);
       openB?.addEventListener("click", show);
