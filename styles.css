@@ -1,12 +1,15 @@
 /* ==========================================================
-   containment.at — Mockup Freeze (v1)
-   Autorität • Ruhe • Weißraum • fließendes Portrait
+   containment.at — Mockup Styles (Freeze v1)
+   Ziel: Autorität • Ruhe • Weißraum • fließendes Portrait
    ========================================================== */
 
+/* --------------------------
+   1) TOKENS
+   -------------------------- */
 :root{
-  /* White system */
-  --bg: #f7f5f1;         /* Hintergrund */
-  --sheet: #fbfaf8;      /* Papierfläche */
+  /* Whites */
+  --bg: #f7f5f1;       /* Außenraum */
+  --sheet: #fbfaf8;    /* Papierfläche */
   --white: #ffffff;
 
   /* Ink */
@@ -17,10 +20,10 @@
   --line: rgba(29,27,24,.12);
   --lineSoft: rgba(29,27,24,.08);
 
-  /* Accent */
+  /* Accent (Goldlinie im Mockup) */
   --accent: #c7a06a;
 
-  /* Typography */
+  /* Typography (Mockup: Serif für Headlines) */
   --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
@@ -28,49 +31,93 @@
   --max: 1120px;
   --pad: 28px;
 
-  /* Radius + shadows (sehr soft) */
+  /* Radius / Shadows */
   --r: 18px;
   --rLg: 26px;
   --shadowSheet: 0 28px 90px rgba(0,0,0,.10);
 
   /* Type scale */
-  --h1: clamp(2.2rem, 4vw, 3.2rem);
+  --h1: clamp(2.4rem, 4.6vw, 3.4rem);
   --h2: clamp(1.6rem, 2.2vw, 2.1rem);
   --p: 1rem;
+
+  /* Grid (sehr subtil!) */
+  --gridFine: rgba(29,27,24,.05);
+  --gridMajor: rgba(29,27,24,.08);
+  --gridFineSize: 34px;
+  --gridMajorSize: 136px;
 }
 
-/* Base */
+/* --------------------------
+   2) BASE
+   -------------------------- */
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
   font-family: var(--sans);
   color: var(--ink);
-  background: radial-gradient(1200px 700px at 50% 10%, rgba(255,255,255,.9), rgba(247,245,241,1));
+  background: var(--bg);
   line-height: 1.55;
-}
-
-/* Screenreader */
-.sr-only{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 a{color:inherit;text-underline-offset:3px}
 img{display:block;max-width:100%;height:auto}
 
-/* Page sheet (Mockup „Blatt“) */
+/* Screenreader helper */
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}
+
+/* --------------------------
+   3) GLOBAL GRID (Mockup: nur Hauch)
+   -------------------------- */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(to right, var(--gridFine) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridFine) 1px, transparent 1px),
+    linear-gradient(to right, var(--gridMajor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridMajor) 1px, transparent 1px);
+
+  background-size:
+    var(--gridFineSize) var(--gridFineSize),
+    var(--gridFineSize) var(--gridFineSize),
+    var(--gridMajorSize) var(--gridMajorSize),
+    var(--gridMajorSize) var(--gridMajorSize);
+
+  opacity: .12; /* <<<<< entscheidend: Mockup sehr subtil */
+}
+
+/* --------------------------
+   4) PAGE SHEET (Mockup „Papier“)
+   -------------------------- */
 .page{
   max-width: var(--max);
   margin: 28px auto 44px;
-  background: var(--sheet);
+  background: rgba(251,250,248,.92);
   border: 1px solid var(--lineSoft);
   border-radius: var(--rLg);
   box-shadow: var(--shadowSheet);
   overflow: hidden;
 }
 
-/* Topbar */
+/* --------------------------
+   5) TOPBAR
+   -------------------------- */
 .topbar{
   position: sticky;
   top: 0;
@@ -79,6 +126,7 @@ img{display:block;max-width:100%;height:auto}
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--lineSoft);
 }
+
 .topbar__inner{
   display:flex;
   align-items:center;
@@ -99,6 +147,7 @@ img{display:block;max-width:100%;height:auto}
   height: 34px;
   border: 1.5px solid var(--line);
   border-radius: 6px;
+  background: transparent;
 }
 .brand__text{display:flex;flex-direction:column;line-height:1.1}
 .brand__name{font-weight:700;letter-spacing:.01em}
@@ -115,7 +164,7 @@ img{display:block;max-width:100%;height:auto}
 }
 .nav a:hover{background: rgba(0,0,0,.04); color: var(--ink)}
 
-/* Mobile nav toggle */
+/* Mobile toggle */
 .navToggle{
   display:none;
   width: 44px; height: 44px;
@@ -133,20 +182,48 @@ img{display:block;max-width:100%;height:auto}
   opacity:.85;
 }
 
-/* Sections */
+/* --------------------------
+   6) SECTIONS
+   -------------------------- */
 .section{padding: 44px var(--pad)}
 .section--center{text-align:center}
-.section--center .lede{margin-left:auto;margin-right:auto}
-.section--center .btn--cta{margin-left:auto;margin-right:auto}
 
-/* Hero */
+/* Headlines */
+.h2{
+  font-family: var(--serif);
+  font-size: var(--h2);
+  font-weight: 500;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.h2--center{text-align:center}
+
+/* Lede */
+.lede{
+  color: var(--muted);
+  margin: 0 0 10px;
+  max-width: 72ch;
+}
+.section--center .lede{margin-left:auto;margin-right:auto}
+
+.lede--strong{
+  font-family: var(--serif);
+  color: var(--ink);
+  margin-top: 12px;
+}
+
+/* --------------------------
+   7) HERO
+   -------------------------- */
 .hero{padding: 34px var(--pad) 26px}
+
 .hero__grid{
   display:grid;
   grid-template-columns: 1.55fr 1fr;
   gap: 34px;
   align-items:center;
 }
+
 .hero__title{
   font-family: var(--serif);
   font-size: var(--h1);
@@ -155,6 +232,7 @@ img{display:block;max-width:100%;height:auto}
   line-height: 1.06;
   margin: 0 0 14px;
 }
+
 .rule{
   width: 68px;
   height: 2px;
@@ -162,19 +240,23 @@ img{display:block;max-width:100%;height:auto}
   border-radius: 2px;
   margin: 0 0 18px;
 }
+
 .hero__claim{
   color: var(--muted);
   margin: 0 0 18px;
   max-width: 52ch;
+  font-size: var(--p);
 }
+
 .hero__price{
   margin: 0;
   color: var(--ink);
+  font-size: var(--p);
 }
 .hero__price strong{font-weight:700}
 .sep{color: var(--muted)}
 
-/* Hero actions: mobile visible, desktop hidden */
+/* Mockup: Mobile buttons unter Preis */
 .hero__actions{
   display:none;
   gap: 10px;
@@ -196,52 +278,38 @@ img{display:block;max-width:100%;height:auto}
   mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 64%, rgba(0,0,0,0) 100%);
 }
 
-/* Containment lede */
-.h2{
-  font-family: var(--serif);
-  font-size: var(--h2);
-  font-weight: 500;
-  margin: 0 0 16px;
-}
-.h2--center{text-align:center}
-.lede{
-  color: var(--muted);
-  margin: 0 0 10px;
-  max-width: 72ch;
-}
-.lede--strong{
-  font-family: var(--serif);
-  color: var(--ink);
-  margin-top: 12px;
-}
-
-/* Cards */
+/* --------------------------
+   8) CARDS (Mockup)
+   -------------------------- */
 .cards{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 18px;
 }
+
 .card{
   border: 1px solid var(--lineSoft);
   border-radius: var(--r);
   background: rgba(255,255,255,.55);
   padding: 18px;
 }
+
 .card h3{
   font-family: var(--serif);
   font-weight: 500;
   margin: 0 0 10px;
   font-size: 1.25rem;
 }
-.card p{
-  margin: 0 0 8px;
-  color: var(--muted);
-  font-size: var(--p);
-}
-.card p:last-of-type{margin-bottom: 14px}
 
-/* Card button like mockup */
+.list{
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.list li{margin: 6px 0}
+
+/* Mockup Button in Card */
 .card__btn{
   display:flex;
   justify-content:space-between;
@@ -254,7 +322,9 @@ img{display:block;max-width:100%;height:auto}
   font-weight: 500;
 }
 
-/* Buttons */
+/* --------------------------
+   9) BUTTONS
+   -------------------------- */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -268,21 +338,28 @@ img{display:block;max-width:100%;height:auto}
   font-weight: 600;
   cursor:pointer;
 }
-.btn--ghost{
-  background: transparent;
+
+.btn--pill{
+  background: rgba(255,255,255,.55);
   color: var(--ink);
-  border-color: var(--line);
+  border-color: var(--lineSoft);
+  padding: 10px 12px;
+  border-radius: 12px;
 }
+
 .btn--cta{
-  border-color: var(--line);
+  border-color: var(--lineSoft);
   background: rgba(255,255,255,.55);
   color: var(--ink);
   padding: 14px 16px;
   border-radius: 12px;
   min-width: min(520px, 92%);
 }
+.section--center .btn--cta{margin-left:auto;margin-right:auto}
 
-/* Contact panel */
+/* --------------------------
+   10) CONTACT PANEL
+   -------------------------- */
 .contactPanel{
   margin: 18px auto 0;
   max-width: 720px;
@@ -292,24 +369,39 @@ img{display:block;max-width:100%;height:auto}
   padding: 16px;
   background: rgba(255,255,255,.65);
 }
+
 .form{display:grid;gap:12px}
+
 .field{display:grid;gap:6px}
-.field span{font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+.field span{
+  font-size: .78rem;
+  color: var(--muted);
+  letter-spacing: .02em;
+}
 .field input,.field textarea{
   border: 1px solid var(--line);
   background: var(--white);
   border-radius: 12px;
   padding: 12px;
   font: inherit;
+  outline: none;
 }
+.field input:focus,.field textarea:focus{
+  border-color: rgba(29,27,24,.25);
+  box-shadow: 0 0 0 4px rgba(29,27,24,.06);
+}
+
 .form__row{display:flex;gap:10px;flex-wrap:wrap}
 
-/* Footer */
+/* --------------------------
+   11) FOOTER
+   -------------------------- */
 .footer{
   border-top: 1px solid var(--lineSoft);
   padding: 18px var(--pad);
   color: var(--muted);
 }
+
 .footer__inner{
   display:flex;
   justify-content:space-between;
@@ -317,23 +409,36 @@ img{display:block;max-width:100%;height:auto}
   gap: 12px;
   flex-wrap:wrap;
 }
+
 .footer__links{display:flex;gap:10px;align-items:center}
 .footer__links a{text-decoration:none}
 .footer__links a:hover{text-decoration:underline}
 
-/* Responsive */
+/* --------------------------
+   12) RESPONSIVE (Mockup Mobile)
+   -------------------------- */
 @media (max-width: 920px){
   :root{ --pad: 18px; }
 
-  .page{margin: 0; border-radius: 0; border-left:0; border-right:0;}
+  /* Sheet wird auf Mobile „full width“ wie im Mockup */
+  .page{
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
   .hero__grid{grid-template-columns: 1fr; gap: 16px;}
   .hero__visual{min-height: 320px;}
 
-  /* Show mobile hero actions like mockup */
+  /* Mobile actions sichtbar */
   .hero__actions{display:flex}
 
-  /* Mobile nav */
+  /* Mobile nav dropdown */
   .navToggle{display:inline-block}
+
+  .topbar__inner{position:relative}
+
   .nav{
     display:none;
     position:absolute;
@@ -344,7 +449,7 @@ img{display:block;max-width:100%;height:auto}
     border-radius: 14px;
     padding: 10px;
     box-shadow: 0 18px 60px rgba(0,0,0,.10);
-    flex-direction:column;
+    flex-direction: column;
     min-width: 220px;
   }
   .nav.is-open{display:flex}
