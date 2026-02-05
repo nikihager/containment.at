@@ -289,3 +289,33 @@ h2{font-size:26px; margin:0 0 16px}
   .cards{grid-template-columns:1fr}
   .twoCol{grid-template-columns:1fr}
 }
+/* Subtiles Raster im Hero-Hintergrund */
+.hero{
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(12,15,20,0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(12,15,20,0.035) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px; /* Rastergröße */
+  opacity: .35;               /* extrem fein */
+  pointer-events:none;
+  z-index:0;
+}
+.hero > .container{
+  position:relative;
+  z-index:1;
+}
