@@ -4,16 +4,32 @@
   --muted:#5b667a;
   --line:rgba(12,15,20,.12);
   --soft:rgba(12,15,20,.04);
+
   --radius:18px;
+  --radiusLg:22px;
+
   --shadow:0 14px 40px rgba(12,15,20,.10);
   --max:1120px;
 
   /* BMW-artiges Grau für die 3 feinen Zeilen */
   --heroGrey:#6b6f78;
 
-  /* Raster / Tiefe */
+  /* Raster / Tiefe (einheitlich über die ganze Seite) */
   --gridFine: rgba(12,15,20,.063);
   --gridMajor: rgba(12,15,20,.112);
+  --gridFineSize: 34px;
+  --gridMajorSize: 136px;
+
+  /* Typo (ruhig, konsistent) */
+  --h2: 26px;
+  --h3: 16px;
+  --p: 16px;
+  --small: 12px;
+
+  /* Cards / Panels */
+  --panelBg: rgba(255,255,255,.74);
+  --panelBgMobile: rgba(255,255,255,.78);
+  --panelBorder: rgba(12,15,20,.12);
 }
 
 /* Base */
@@ -30,7 +46,56 @@ body{
 a{color:inherit; text-underline-offset:3px}
 .container{max-width:var(--max); margin:0 auto; padding:0 28px}
 
-/* Topbar */
+/* =========================
+   GLOBAL GRID (einheitlich)
+   ========================= */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  /* feines + major Raster */
+  background-image:
+    linear-gradient(to right, var(--gridFine) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridFine) 1px, transparent 1px),
+    linear-gradient(to right, var(--gridMajor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridMajor) 1px, transparent 1px);
+
+  background-size:
+    var(--gridFineSize) var(--gridFineSize),
+    var(--gridFineSize) var(--gridFineSize),
+    var(--gridMajorSize) var(--gridMajorSize),
+    var(--gridMajorSize) var(--gridMajorSize);
+
+  opacity:.55;
+}
+
+/* Sections: leichte „Stage“-Logik, damit alles wie aus einem Guss wirkt */
+.section{padding:44px 0}
+.section--soft{
+  background:rgba(12,15,20,.03);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+/* Typo Defaults */
+h2{
+  font-size:var(--h2);
+  margin:0 0 16px;
+  letter-spacing:-0.01em;
+}
+h3{
+  font-size:var(--h3);
+  margin:0 0 8px;
+}
+p{margin:0 0 12px; font-size:var(--p)}
+p:last-child{margin-bottom:0}
+
+/* =========================
+   TOPBAR
+   ========================= */
 .topbar{
   position:sticky; top:0; z-index:50;
   background:rgba(255,255,255,.86);
@@ -72,60 +137,37 @@ a{color:inherit; text-underline-offset:3px}
 }
 .nav a:hover{background:var(--soft); color:var(--ink)}
 
-/* Hero */
+/* =========================
+   HERO (Design-Referenz)
+   ========================= */
 .hero{
   position:relative;
   overflow:hidden;
   padding:30px 0 20px;
 }
 
-/* ✅ Raster im Hero-Hintergrund (deutlicher) */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    /* fein */
-    linear-gradient(to right, var(--gridFine) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--gridFine) 1px, transparent 1px),
-    /* major */
-    linear-gradient(to right, var(--gridMajor) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--gridMajor) 1px, transparent 1px);
-  background-size:
-    34px 34px,
-    34px 34px,
-    136px 136px,
-    136px 136px;
-  opacity:.75;
-  pointer-events:none;
-  z-index:0;
+/* Hero-Layout */
+.hero__grid{
+  display:grid;
+  grid-template-columns: 1.618fr 1fr;
+  gap:34px;
+  align-items:center;
 }
 
-/* ✅ "Fade" unter Text/Bild, damit das Grid dort zurücktritt */
+/* „Panel“-Look im Hero (und später wiederverwendbar) */
 .hero__copy, .hero__visual{
   position:relative;
-  z-index:1;
 }
 .hero__copy::before,
 .hero__visual::before{
   content:"";
   position:absolute;
-  inset:-14px;                  /* ein bisschen größer als der Content */
-  background:rgba(255,255,255,.74);
-  border-radius:22px;
+  inset:-14px;
+  background:var(--panelBg);
+  border:1px solid var(--panelBorder);
+  border-radius:var(--radiusLg);
   pointer-events:none;
   z-index:-1;
-  filter: blur(0.2px);
-}
-
-/* Layout */
-.hero__grid{
-  position:relative;
-  z-index:1;
-  display:grid;
-  grid-template-columns: 1.618fr 1fr; /* golden ratio feel */
-  gap:34px;
-  align-items:center;
 }
 
 /* Toggle states */
@@ -134,7 +176,7 @@ a{color:inherit; text-underline-offset:3px}
 
 /* Values / Headline */
 .hero__values{
-  font-size:40px;     /* ruhiger */
+  font-size:40px;
   line-height:1.08;
   margin:0 0 10px;
   letter-spacing:-0.01em;
@@ -184,6 +226,7 @@ a{color:inherit; text-underline-offset:3px}
   text-decoration:none;
   font-weight:650;
   cursor:pointer;
+  transition: transform .12s ease;
 }
 .btn--ghost{
   background:transparent;
@@ -256,37 +299,32 @@ a{color:inherit; text-underline-offset:3px}
   align-items:flex-end;
   justify-content:center;
 }
+
+/* WICHTIG: deine Maske war „100%/100%“ => keine Weichzeichnung.
+   Hier echte weiche Kante + minimaler Kontrast, ohne Schatten. */
 .hero__visual img{
   width:360px;
   height:auto;
   object-fit:contain;
   display:block;
   background:none;
-  filter:none;
+  filter: saturate(1.02) contrast(1.02);
 
-  /* ✅ weiche Foto-Kanten (weniger "hart") */
   -webkit-mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 100%,
+    rgba(0,0,0,1) 64%,
     rgba(0,0,0,0) 100%
   );
   mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 100%,
+    rgba(0,0,0,1) 64%,
     rgba(0,0,0,0) 100%
   );
 }
 
-/* Sections */
-.section{padding:46px 0}
-.section--soft{
-  background:rgba(12,15,20,.03);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-h2{font-size:26px; margin:0 0 16px}
-
-/* Cards */
+/* =========================
+   CARDS (Angebote / Ablauf)
+   ========================= */
 .cards{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -295,13 +333,17 @@ h2{font-size:26px; margin:0 0 16px}
 .card{
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:16px;
-  background:#fff;
+  padding:18px;
+  background:rgba(255,255,255,.88);
+  backdrop-filter: blur(4px);
 }
-.card h3{margin:0 0 8px; font-size:16px}
-.card p{margin:0; color:var(--muted)}
+.card p{color:var(--muted)}
+.card a{color:var(--ink); font-weight:650; text-decoration:none}
+.card a:hover{text-decoration:underline}
 
-/* Two column + callout */
+/* =========================
+   TWO COL + CALLOUT
+   ========================= */
 .twoCol{
   display:grid;
   grid-template-columns: 1.15fr .85fr;
@@ -311,17 +353,82 @@ h2{font-size:26px; margin:0 0 16px}
 .callout{
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:16px;
-  background:#fff;
+  padding:18px;
+  background:rgba(255,255,255,.88);
+  backdrop-filter: blur(4px);
 }
-.callout__title{margin:0 0 8px; font-weight:700}
-.callout ul{margin:0 0 12px; padding-left:18px; color:var(--muted)}
+.callout__title{margin:0 0 8px; font-weight:800}
+.callout ul{
+  margin:0 0 12px;
+  padding-left:18px;
+  color:var(--muted);
+}
 .callout ul:last-child{margin-bottom:0}
 
-/* Footer */
+/* =========================
+   DECISION LEVELS (Boardroom/Executive/Private)
+   ========================= */
+.decisionBlock{
+  border:1px solid var(--line);
+  border-radius:var(--radiusLg);
+  padding:18px;
+  background:rgba(255,255,255,.82);
+  backdrop-filter: blur(6px);
+  margin:0 0 14px;
+}
+.decisionBlock:last-child{margin-bottom:0}
+
+.decisionBlock h2{
+  margin:0 0 10px;
+  font-size:22px;
+  letter-spacing:-0.01em;
+}
+.decisionIntro{
+  color:var(--muted);
+  margin:0 0 12px;
+  font-size:15px;
+}
+
+.decisionList{
+  list-style:none;
+  padding:0;
+  margin:0 0 12px;
+  display:grid;
+  gap:10px;
+}
+.decisionList li{
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.9);
+  color:var(--muted);
+  line-height:1.45;
+}
+.decisionList li strong{
+  color:var(--ink);
+  font-weight:850;
+}
+
+.decisionCTA{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+.decisionCTA a{
+  color:var(--ink);
+  font-weight:750;
+  text-decoration:none;
+}
+.decisionCTA a:hover{text-decoration:underline}
+
+/* =========================
+   FOOTER
+   ========================= */
 .footer{
   padding:22px 0;
   border-top:1px solid var(--line);
+  background:rgba(255,255,255,.72);
+  backdrop-filter: blur(6px);
 }
 .footer__inner{
   display:flex;
@@ -329,12 +436,15 @@ h2{font-size:26px; margin:0 0 16px}
   gap:12px;
   flex-wrap:wrap;
   color:var(--muted);
+  font-size:13px;
 }
 .footer__links{display:flex; gap:14px}
 .footer__links a{text-decoration:none}
 .footer__links a:hover{text-decoration:underline}
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+   ========================= */
 @media (max-width: 920px){
   .container{padding:0 18px}
 
@@ -345,13 +455,15 @@ h2{font-size:26px; margin:0 0 16px}
   .hero__visual{min-height:340px}
   .hero__visual img{width:320px}
 
-  /* Fade-Karten am Mobile etwas weniger „flächig“ */
   .hero__copy::before,
   .hero__visual::before{
     inset:-10px;
-    background:rgba(255,255,255,.78);
+    background:var(--panelBgMobile);
   }
 
   .cards{grid-template-columns:1fr}
   .twoCol{grid-template-columns:1fr}
 }
+
+/* Kleine Feinheit: Scroll-Anker nicht unter Topbar verstecken */
+:target{scroll-margin-top:92px}
