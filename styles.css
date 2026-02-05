@@ -10,6 +10,10 @@
 
   /* BMW-artiges Grau für die 3 feinen Zeilen */
   --heroGrey:#6b6f78;
+
+  /* Raster / Tiefe */
+  --gridFine: rgba(12,15,20,.09);
+  --gridMajor: rgba(12,15,20,.16);
 }
 
 /* Base */
@@ -69,8 +73,55 @@ a{color:inherit; text-underline-offset:3px}
 .nav a:hover{background:var(--soft); color:var(--ink)}
 
 /* Hero */
-.hero{padding:30px 0 20px}
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:30px 0 20px;
+}
+
+/* ✅ Raster im Hero-Hintergrund (deutlicher) */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    /* fein */
+    linear-gradient(to right, var(--gridFine) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridFine) 1px, transparent 1px),
+    /* major */
+    linear-gradient(to right, var(--gridMajor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridMajor) 1px, transparent 1px);
+  background-size:
+    34px 34px,
+    34px 34px,
+    136px 136px,
+    136px 136px;
+  opacity:.75;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ✅ "Fade" unter Text/Bild, damit das Grid dort zurücktritt */
+.hero__copy, .hero__visual{
+  position:relative;
+  z-index:1;
+}
+.hero__copy::before,
+.hero__visual::before{
+  content:"";
+  position:absolute;
+  inset:-14px;                  /* ein bisschen größer als der Content */
+  background:rgba(255,255,255,.74);
+  border-radius:22px;
+  pointer-events:none;
+  z-index:-1;
+  filter: blur(0.2px);
+}
+
+/* Layout */
 .hero__grid{
+  position:relative;
+  z-index:1;
   display:grid;
   grid-template-columns: 1.618fr 1fr; /* golden ratio feel */
   gap:34px;
@@ -83,7 +134,7 @@ a{color:inherit; text-underline-offset:3px}
 
 /* Values / Headline */
 .hero__values{
-  font-size:40px;     /* kleiner, ruhiger */
+  font-size:40px;     /* ruhiger */
   line-height:1.08;
   margin:0 0 10px;
   letter-spacing:-0.01em;
@@ -213,15 +264,15 @@ a{color:inherit; text-underline-offset:3px}
   background:none;
   filter:none;
 
-  /* weiche Kanten */
+  /* ✅ weiche Foto-Kanten (weniger "hart") */
   -webkit-mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 58%,
+    rgba(0,0,0,1) 60%,
     rgba(0,0,0,0) 100%
   );
   mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 58%,
+    rgba(0,0,0,1) 60%,
     rgba(0,0,0,0) 100%
   );
 }
@@ -294,36 +345,13 @@ h2{font-size:26px; margin:0 0 16px}
   .hero__visual{min-height:340px}
   .hero__visual img{width:320px}
 
+  /* Fade-Karten am Mobile etwas weniger „flächig“ */
+  .hero__copy::before,
+  .hero__visual::before{
+    inset:-10px;
+    background:rgba(255,255,255,.78);
+  }
+
   .cards{grid-template-columns:1fr}
   .twoCol{grid-template-columns:1fr}
-}
-/* Subtiles Raster im Hero-Hintergrund */
-.hero{
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    /* fein */
-    linear-gradient(to right, rgba(12,15,20,.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(12,15,20,.06) 1px, transparent 1px),
-    /* major lines */
-    linear-gradient(to right, rgba(12,15,20,.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(12,15,20,.12) 1px, transparent 1px);
-  background-size:
-    36px 36px,
-    36px 36px,
-    144px 144px,
-    144px 144px;
-  opacity:.9;
-  pointer-events:none;
-  z-index:0;
-}
-.hero > .container{
-  position:relative;
-  z-index:1;
 }
