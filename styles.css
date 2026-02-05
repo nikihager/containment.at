@@ -206,16 +206,24 @@ a{color:inherit; text-underline-offset:3px}
   justify-content:center;
 }
 .hero__visual img{
-  width:360px; /* Bild etwas kleiner */
+  width:360px;
   height:auto;
-  border-radius:0;
   object-fit:contain;
-
-  /* Schatten weg */
-  filter:none;
-
   display:block;
   background:none;
+  filter:none;
+
+  /* weiche Kanten */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 58%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 58%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
 /* Sections */
