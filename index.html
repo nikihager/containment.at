@@ -4,46 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>containment.at – Professioneller Wirkraum für Klarheit & Entscheidung</title>
-  <meta name="description" content="Containment ist ein professionell gehaltener Wirkraum für Klarheit, Entscheidung und Übergänge – ohne Coaching-Prozessbindung, ohne Vereinfachung, oft in 60 Minuten." />
+  <title>containment.at – The Art of Containment</title>
+  <meta name="description" content="Containment ist ein professionell gehaltener Raum für Klarheit, Entscheidung und Übergänge. Wenn es zu viel wird: Ich halte den Raum, bis wieder Ordnung möglich ist." />
 
-  <!-- Canonical (später auf Ihre echte Domain umstellen) -->
   <link rel="canonical" href="https://containmentat.netlify.app/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="containment.at – Klarheit. Entscheidung. Übergänge." />
-  <meta property="og:description" content="Professionell gehaltener Wirkraum für Komplexität, Emotion und Verantwortung – damit Entscheidung wieder möglich wird." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://containmentat.netlify.app/" />
-  <!-- Optional: sobald Sie ein Social-Share-Bild haben -->
-  <!-- <meta property="og:image" content="https://containmentat.netlify.app/assets/og.jpg" /> -->
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Icons (optional – falls vorhanden) -->
-  <!-- <link rel="icon" href="/assets/favicon.ico" /> -->
-  <!-- <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" /> -->
-
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
-  <!-- Skip link (A11y) -->
   <a href="#main" class="sr-only">Zum Inhalt springen</a>
 
   <header class="topbar" role="banner">
     <div class="container topbar__inner">
       <a class="brand" href="/" aria-label="Zur Startseite">
-        <img src="/assets/containment-at-logo.svg" alt="containment.at" />
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name">containment.at</span>
+          <span class="brand__tag">The Art of Containment.</span>
+        </span>
       </a>
 
       <nav class="nav" aria-label="Hauptnavigation">
-        <a href="#angebote">Angebote</a>
-        <a href="#ablauf">Ablauf</a>
         <a href="#containment">Containment</a>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/agb.html">AGB</a>
+        <a href="#felder">Anwendungsfelder</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -53,276 +38,166 @@
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__grid">
-
-        <!-- LEFT -->
         <div class="hero__copy">
+          <h1 class="hero__values" id="hero-title">
+            Struktur.<br>
+            Präsenz.<br>
+            Verantwortung.<br>
+            Entscheidung.
+          </h1>
 
-          <!-- STATE: DEFAULT -->
-          <div class="heroState is-active" id="heroText" aria-hidden="false">
-            <h1 class="hero__values" id="hero-title">
-              <span class="fine">Struktur.</span><br>
-              <span class="fine">Präsenz.</span><br>
-              <span class="fine">Verantwortung.</span><br>
-              <span class="strong">Entscheidung ist Lösung.</span>
-            </h1>
+          <div class="hero__rule" aria-hidden="true"></div>
 
-            <p class="hero__claim">
-              containment.at ist der Raum,<br>
-              in dem Entscheidungen<br>
-              <strong>in 60 Minuten wieder klar &amp; möglich werden.</strong>
-            </p>
+          <p class="hero__claim">
+            Wenn es zu viel wird: Ich halte den Raum,<br>
+            bis wieder Ordnung möglich ist.
+          </p>
 
-            <p class="lead">
-              Kein stundenlanges Coaching. Keine Therapie. Kein Sparring.<br>
-              Ein <strong>professionell gehaltener Wirkraum</strong>, in dem Klarheit entsteht –
-              ohne Komplexität zu reduzieren oder zu übergehen.<br>
-              <strong>Vereinbaren Sie Ihr Erstgespräch jetzt.</strong>
-            </p>
-
-            <div class="ctaRow" role="group" aria-label="Kontaktmöglichkeiten">
-              <button class="btn" id="btnEmail" type="button">E-Mail</button>
-              <a class="btn btn--ghost" href="tel:+4369911881000">Anrufen</a>
-              <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
-            </div>
-
-            <div class="heroMeta" aria-label="Rahmendaten">
-              <div class="heroMeta__line">Online · Zoom · Live in Wien</div>
-              <div class="heroMeta__line heroMeta__price"><strong>260,00&nbsp;€</strong> / Stunde</div>
-              <div class="heroMeta__line">Unternehmensberatung · Containment · Klarheit &amp; Struktur</div>
-            </div>
-          </div>
-
-          <!-- STATE: FORM -->
-          <div class="heroState" id="heroForm" aria-hidden="true">
-            <h2 class="heroForm__title">Kontakt per E-Mail</h2>
-
-            <p class="heroForm__promise">
-              containment.at ist der Raum,<br>
-              in dem Entscheidungen &amp; Lösungen<br>
-              <strong>in 60 Minuten wieder möglich werden.</strong>
-            </p>
-
-            <div class="heroPanel">
-              <!-- Netlify Forms: statisch im HTML, POST, data-netlify, hidden form-name -->
-              <form
-                class="contactForm"
-                name="kontakt"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-              >
-                <input type="hidden" name="form-name" value="kontakt" />
-                <!-- Optional: Danke-Seite -->
-                <input type="hidden" name="redirect" value="/danke.html" />
-
-                <!-- Honeypot -->
-                <p class="sr-only">
-                  <label>Bitte nicht ausfüllen: <input name="bot-field" /></label>
-                </p>
-
-                <div class="field">
-                  <label class="field__label" for="subject">Betreff</label>
-                  <input
-                    class="field__input"
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    placeholder="z. B. Erstgespräch – Entscheidung / Klarheit"
-                    autocomplete="off"
-                    required
-                  />
-                </div>
-
-                <div class="field">
-                  <label class="field__label" for="message">Anliegen in wenigen Worten</label>
-                  <textarea
-                    class="field__textarea"
-                    id="message"
-                    name="message"
-                    rows="6"
-                    placeholder="Worum geht es gerade? Was muss in 60 Minuten klar werden?"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="formRow">
-                  <button class="btn" type="submit">Senden</button>
-                  <button class="btn btn--ghost" type="button" id="btnBack">Zurück</button>
-                </div>
-
-                <noscript>
-                  <p style="margin-top:12px;">
-                    JavaScript ist deaktiviert. Sie können auch direkt schreiben:
-                    <a href="mailto:nh@nikihager.com">nh@nikihager.com</a>
-                  </p>
-                </noscript>
-              </form>
-            </div>
-          </div>
-
+          <p class="hero__price">
+            <strong>260&nbsp;€</strong> / Stunde <span class="dot">·</span> Wien &amp; Remote
+          </p>
         </div>
 
-        <!-- RIGHT -->
         <div class="hero__visual" aria-label="Portrait">
-          <!-- LCP-sicher: kein lazy, fetchpriority hoch, width/height gegen CLS -->
-          <!-- Optional: später Netlify Image CDN + srcset -->
           <img
             src="/assets/hero.png"
-            alt="Niki Hager – Containment"
+            alt="Niki Hager"
             width="720"
             height="900"
             decoding="async"
             fetchpriority="high"
           />
         </div>
-
       </div>
     </section>
 
-    <!-- CONTAINMENT – VERTIEFUNG -->
-    <section id="containment" class="section" aria-labelledby="containment-title">
+    <!-- CONTAINMENT -->
+    <section id="containment" class="section section--center" aria-labelledby="containment-title">
       <div class="container">
-        <h2 id="containment-title">Containment</h2>
+        <h2 id="containment-title" class="h2">Containment</h2>
 
-        <p>
-          <strong>Containment</strong> ist keine Methode. Kein Coaching. Keine Therapie.
-          Es ist ein <strong>professionell gehaltener Wirkraum</strong>,
-          in dem Komplexität, Emotion und Verantwortung gleichzeitig bestehen dürfen.
+        <p class="subline">
+          Containment ist ein professionell gehaltener Raum,<br>
+          in dem Komplexität, Emotion und Verantwortung gleichzeitig bleiben dürfen.
         </p>
 
-        <p>
-          Genau dadurch wird Entscheidung wieder möglich.
-          Nicht durch Druck, nicht durch Vereinfachung –
-          sondern durch einen klaren Rahmen, der trägt.
-        </p>
-
-        <p>
-          Ziel ist nicht Beruhigung, sondern
-          <strong>die Wiederherstellung von Entscheidungsfähigkeit</strong> –
-          oft innerhalb von 60 Minuten.
+        <p class="bigline">
+          Wieder klar &amp; entscheidungsfähig – in 60 Minuten.
         </p>
       </div>
     </section>
 
-    <!-- DECISION LEVELS -->
-    <section class="section" aria-label="Formate">
+    <!-- ANWENDUNGSFELDER -->
+    <section id="felder" class="section" aria-labelledby="felder-title">
       <div class="container">
+        <h2 id="felder-title" class="h2 h2--center">Anwendungsfelder</h2>
 
-        <article class="decisionBlock">
-          <h2>Boardroom Version</h2>
-          <p class="decisionIntro">
-            Für Situationen, in denen Entscheidungen Tragweite haben –
-            rechtlich, wirtschaftlich, strategisch.
-          </p>
-          <ul class="decisionList">
-            <li><strong>Komplexität darf vollständig bestehen.</strong> Nichts wird vereinfacht oder beschleunigt.</li>
-            <li><strong>Emotion und Risiko werden gehalten.</strong> Nicht ausgelagert, nicht ignoriert.</li>
-            <li><strong>Der Rahmen ist klar.</strong> Verantwortung bleibt dort, wo sie hingehört.</li>
-            <li><strong>Entscheidungen entstehen aus Übersicht.</strong> Nicht aus Druck.</li>
-            <li><strong>Effizienz statt Prozessbindung.</strong> Oft innerhalb von 60 Minuten.</li>
-          </ul>
-          <p class="decisionCTA">→ <a href="#angebote">Zu den Angeboten für Business &amp; Organisationen</a></p>
-        </article>
-
-        <article class="decisionBlock">
-          <h2>Executive Version</h2>
-          <p class="decisionIntro">
-            Für CEOs, Führungskräfte und Entscheider,
-            die Verantwortung nicht delegieren können.
-          </p>
-          <ul class="decisionList">
-            <li><strong>Ein professionell gehaltener Raum.</strong> Keine Methode, kein Coaching.</li>
-            <li><strong>Übertragung von Spannung und Prozess.</strong> Der Entscheider wird entlastet.</li>
-            <li><strong>Klarheit statt Meinungen.</strong> Keine Ratschläge, keine Konzepte.</li>
-            <li><strong>Entscheidungsfähigkeit als Ziel.</strong> Nicht Beruhigung.</li>
-            <li><strong>Wirksam, präzise, effizient.</strong> Oft innerhalb von 60 Minuten.</li>
-          </ul>
-          <p class="decisionCTA">→ <a href="#angebote">Zu den Executive-Angeboten</a></p>
-        </article>
-
-        <article class="decisionBlock">
-          <h2>Private Leadership Version</h2>
-          <p class="decisionIntro">
-            Für Menschen in Verantwortung,
-            wenn berufliche und persönliche Ebenen sich nicht mehr trennen lassen.
-          </p>
-          <ul class="decisionList">
-            <li><strong>Beziehung, Familie, Beruf im selben Raum.</strong> Ohne Priorisierung von außen.</li>
-            <li><strong>Krise, Trennung, Neuorientierung.</strong> Gehalten statt analysiert.</li>
-            <li><strong>Emotion darf da sein.</strong> Ohne den Prozess zu dominieren.</li>
-            <li><strong>Der nächste Schritt wird klar.</strong> Tragfähig, nicht impulsiv.</li>
-            <li><strong>Entscheidung aus innerer Gewissheit.</strong> Nicht aus Erschöpfung.</li>
-          </ul>
-          <p class="decisionCTA">→ <a href="#angebote">Zu den persönlichen Containment-Angeboten</a></p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ANGEBOTE -->
-    <section id="angebote" class="section section--soft" aria-labelledby="angebote-title">
-      <div class="container">
-        <h2 id="angebote-title">Angebote</h2>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Business Containment</h3>
-            <p>Für Entscheidung, Führung und Verantwortung im professionellen Kontext.</p>
-            <p>
-              Führungsthemen · Unternehmens- &amp; Gruppenkontexte · Kündigung (aktiv / passiv) ·
-              Neuorientierung · Jobwechsel · Eskalationen
-            </p>
-            <p style="margin-top:10px;">
-              <a href="#hero-title" class="js-open-email">Erstgespräch anfragen</a>
-            </p>
+        <div class="cards cards--mock">
+          <article class="card card--mock">
+            <h3>Business &amp;<br>Führung</h3>
+            <ul class="list">
+              <li>Entscheidung unter Druck</li>
+              <li>Verantwortung für Menschen &amp; Organisationen</li>
+              <li>Kündigung (aktiv / passiv)</li>
+              <li>Neuorientierung, Übergänge</li>
+            </ul>
+            <a class="btn btn--ghost btn--card" href="#kontakt">Business-Anliegen klären →</a>
           </article>
 
-          <article class="card">
-            <h3>Persönliches Containment</h3>
-            <p>Für Beziehung, Familie, Beruf und persönliche Übergänge.</p>
-            <p>
-              Beziehung &amp; Trennung · Kinder &amp; Verantwortung · berufliche Krise ·
-              Trauer &amp; Verlust · Neuorientierung
-            </p>
-            <p style="margin-top:10px;">
-              <a href="#hero-title" class="js-open-email">Kontakt aufnehmen</a>
-            </p>
+          <article class="card card--mock">
+            <h3>Private Leadership</h3>
+            <ul class="list">
+              <li>Beziehung &amp; Familie</li>
+              <li>Trennung, Krankheit, Trauer</li>
+              <li>Berufliche Umbrüche</li>
+              <li>Innere Überforderung trotz Funktionieren</li>
+            </ul>
+            <a class="btn btn--ghost btn--card" href="#kontakt">Privates klären →</a>
           </article>
 
-          <article class="card">
-            <h3>Gruppen &amp; Organisationen</h3>
-            <p>Für Systeme, Teams und kollektive Entscheidungsräume.</p>
-            <p>
-              Aufstellungsarbeit (online &amp; offline) · Team-Containment ·
-              mehrstündige Prozesse · Organisationsentwicklung
-            </p>
-            <p style="margin-top:10px;">
-              <a href="#hero-title" class="js-open-email">Anfrage stellen</a>
-            </p>
+          <article class="card card--mock">
+            <h3>Organisation<br>&amp; Systeme</h3>
+            <ul class="list">
+              <li>Organisationen &amp; Teams</li>
+              <li>Aufstellungsarbeit (online / live)</li>
+              <li>Mehrstündige Prozesse</li>
+              <li>Struktur &amp; Entscheidungsfähigkeit im System</li>
+            </ul>
+            <a class="btn btn--ghost btn--card" href="#kontakt">Organisationen klären →</a>
           </article>
         </div>
-
       </div>
     </section>
 
     <!-- ABLAUF -->
-    <section id="ablauf" class="section" aria-labelledby="ablauf-title">
+    <section id="ablauf" class="section section--soft" aria-labelledby="ablauf-title">
       <div class="container">
-        <h2 id="ablauf-title">Ablauf</h2>
+        <h2 id="ablauf-title" class="h2 h2--center">Ablauf</h2>
 
-        <div class="cards">
-          <article class="card">
-            <h3>1 · Auftrag &amp; Rahmen</h3>
-            <p>Klärung von Kontext, Ziel und Verantwortung.</p>
+        <div class="cards cards--steps">
+          <article class="card card--mock">
+            <h3>1 · Rahmen</h3>
+            <p>Kontext, Auftrag, Verantwortung. Klar, kurz, tragfähig.</p>
           </article>
-          <article class="card">
+          <article class="card card--mock">
             <h3>2 · Containment</h3>
-            <p>Der Raum hält Komplexität, Emotion und Prozess – ohne Druck.</p>
+            <p>Komplexität darf bestehen. Kein Druck. Kein „Prozess“.</p>
           </article>
-          <article class="card">
+          <article class="card card--mock">
             <h3>3 · Entscheidung</h3>
-            <p>Verdichtung auf Klarheit, Richtung und nächste Schritte.</p>
+            <p>Verdichtung auf Richtung, nächste Schritte, Konsequenzen.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT CTA -->
+    <section id="kontakt" class="section section--center" aria-labelledby="kontakt-title">
+      <div class="container">
+        <h2 id="kontakt-title" class="h2">Wenn Sie spüren.</h2>
+        <p class="subline">dass es Zeit ist, wieder klar zu werden:</p>
+
+        <div class="ctaCenter">
+          <a class="btn btn--ghost btn--cta" href="tel:+4369911881000">Anrufen</a>
+          <a class="btn btn--ghost btn--cta" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="btn" type="button" id="openForm">Kontaktformular</button>
+        </div>
+
+        <div class="contactPanel" id="contactPanel" hidden>
+          <form
+            class="contactForm"
+            name="kontakt"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="kontakt" />
+            <input type="hidden" name="redirect" value="/danke.html" />
+
+            <p class="sr-only">
+              <label>Bitte nicht ausfüllen: <input name="bot-field" /></label>
+            </p>
+
+            <div class="field">
+              <label class="field__label" for="name">Name</label>
+              <input class="field__input" id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">E-Mail</label>
+              <input class="field__input" id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="message">Worum geht es gerade?</label>
+              <textarea class="field__textarea" id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <div class="formRow">
+              <button class="btn" type="submit">Senden</button>
+              <button class="btn btn--ghost" type="button" id="closeForm">Schließen</button>
+            </div>
+          </form>
         </div>
 
       </div>
@@ -330,54 +205,33 @@
 
     <footer class="footer" role="contentinfo">
       <div class="container footer__inner">
-        <div>© nikihager.com</div>
         <div class="footer__links">
           <a href="/impressum.html">Impressum</a>
+          <span aria-hidden="true">·</span>
           <a href="/agb.html">AGB</a>
         </div>
+        <div>© containment.at</div>
       </div>
     </footer>
 
   </main>
 
   <script>
-    (function () {
-      const btnEmail = document.getElementById("btnEmail");
-      const btnBack  = document.getElementById("btnBack");
-      const heroText = document.getElementById("heroText");
-      const heroForm = document.getElementById("heroForm");
+    (function(){
+      const open = document.getElementById("openForm");
+      const close = document.getElementById("closeForm");
+      const panel = document.getElementById("contactPanel");
+      if (!open || !close || !panel) return;
 
-      function showForm() {
-        heroText.classList.remove("is-active");
-        heroForm.classList.add("is-active");
-        heroText.setAttribute("aria-hidden", "true");
-        heroForm.setAttribute("aria-hidden", "false");
-        // Fokus in das erste Feld
-        const first = heroForm.querySelector("input, textarea, button");
-        if (first) first.focus();
-      }
+      open.addEventListener("click", () => {
+        panel.hidden = false;
+        const first = panel.querySelector("input, textarea, button");
+        first && first.focus();
+      });
 
-      function showText() {
-        heroForm.classList.remove("is-active");
-        heroText.classList.add("is-active");
-        heroForm.setAttribute("aria-hidden", "true");
-        heroText.setAttribute("aria-hidden", "false");
-        if (btnEmail) btnEmail.focus();
-      }
-
-      if (btnEmail && btnBack && heroText && heroForm) {
-        btnEmail.addEventListener("click", showForm);
-        btnBack.addEventListener("click", showText);
-      }
-
-      // Links in den Cards öffnen das Formular (optional)
-      document.querySelectorAll(".js-open-email").forEach((a) => {
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          showForm();
-          // sanft nach oben, falls nötig
-          document.getElementById("hero-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+      close.addEventListener("click", () => {
+        panel.hidden = true;
+        open.focus();
       });
     })();
   </script>
