@@ -13,9 +13,10 @@
 <header class="topbar">
   <div class="container topbar__inner">
     <a class="brand" href="/">
-  <img src="/assets/containment-at-logo.svg" alt="containment.at – The Art of Containment">
-</a>
-    <nav class="nav">
+      <img src="/assets/containment-at-logo.svg" alt="containment.at">
+    </a>
+
+    <nav class="nav" aria-label="Hauptnavigation">
       <a href="#angebote">Angebote</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#containment">Containment</a>
@@ -27,43 +28,80 @@
 
 <main>
 
-<div class="hero__content">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero__grid">
 
-  <h1 class="hero__values">
-    Struktur.<br>
-    Präsenz.<br>
-    Verantwortung.<br>
-    <strong>LÖSUNG.</strong>
-  </h1>
+    <!-- LEFT -->
+    <div class="hero__content">
 
-  <p class="hero__claim">
-    Dein Raum,<br>
-    in dem Entscheidungen<br>
-    <strong>wieder möglich werden.</strong>
-  </p>
+      <h1 class="hero__values">
+        <span class="fine">Struktur.</span><br>
+        <span class="fine">Präsenz.</span><br>
+        <span class="fine">Verantwortung.</span><br>
+        <span class="strong">LÖSUNG.</span>
+      </h1>
 
-  <p class="lead">
-    Containment ist kein Coaching. Keine Therapie. Kein Sparring.<br>
-    Es ist ein <strong>professionell gehaltener Wirkraum</strong>,<br>
-    in dem in kurzer Zeit Klarheit entsteht –<br>
-    für Entscheidung, nächste Schritte und tragfähige Lösungen<br>
-    ohne Komplexität zu reduzieren oder zu übergehen.
-  </p>
+      <p class="hero__claim">
+        Dein Raum,<br>
+        in dem Entscheidungen<br>
+        <strong>wieder möglich werden.</strong>
+      </p>
 
-  <div class="ctaRow">
-    <a href="#kontakt" class="btn">E-Mail</a>
-    <a href="tel:+4369911881000" class="btn btn--ghost">Anrufen</a>
-    <a href="https://wa.me/4369911881000" class="btn btn--ghost">WhatsApp</a>
-  </div>
+      <p class="lead">
+        Containment ist kein Coaching. Keine Therapie. Kein Sparring.<br>
+        Es ist ein <strong>professionell gehaltener Wirkraum</strong>, in dem in kurzer Zeit Klarheit entsteht –
+        für Entscheidung, nächste Schritte und tragfähige Lösungen
+        ohne Komplexität zu reduzieren oder zu übergehen.
+      </p>
 
-  <div class="fineprint">
-    Online · Zoom · Live in Wien<br>
-    <strong>260,00 € / Stunde</strong><br>
-    Unternehmensberatung · Containment · Coaching<br>
-    Klarheit &amp; Struktur
-  </div>
+      <!-- CTA (scheinbare Auswahl, E-Mail führt links) -->
+      <div class="ctaRow">
+        <button class="btn" type="button" id="ctaEmail" aria-controls="heroContact" aria-expanded="false">E-Mail</button>
+        <a class="btn btn--ghost" href="tel:+4369911881000">Anrufen</a>
+        <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
 
-</div>
+      <!-- CONTACT PANEL (ersetzt Mail/Tel/Ort Block) -->
+      <div id="heroContact" class="heroPanel" hidden>
+        <form class="contactForm" action="mailto:nh@nikihager.com" method="post" enctype="text/plain">
+          <label class="field">
+            <span class="field__label">Betreff</span>
+            <input class="field__input" type="text" name="subject" placeholder="z. B. Entscheidung / Übergang / Konflikt" required>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Anliegen in wenigen Worten</span>
+            <textarea class="field__textarea" name="body" rows="4" placeholder="2–3 Sätze. Worum geht es – und was soll am Ende klar sein?" required></textarea>
+          </label>
+
+          <div class="formRow">
+            <button class="btn" type="submit">Senden</button>
+            <button class="btn btn--ghost" type="button" id="ctaClose">Schließen</button>
+          </div>
+
+          <p class="fineprint">
+            Hinweis: Dein Mail-Programm öffnet sich zum Senden.
+          </p>
+        </form>
+      </div>
+
+      <!-- FRAME SUMMARY (statt Mail/Tel/Ort) -->
+      <div class="heroMeta" aria-label="Rahmen">
+        <div class="heroMeta__line">Online · Zoom · Live in Wien</div>
+        <div class="heroMeta__line heroMeta__price"><strong>260,00 € / Stunde</strong></div>
+        <div class="heroMeta__line">Unternehmensberatung · Containment · Coaching</div>
+        <div class="heroMeta__line">Klarheit &amp; Struktur</div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero__visual">
+      <img src="/assets/hero.png"
+           alt="Niki Hager – Containment"
+           onerror="this.style.display='none';">
+    </div>
 
   </div>
 </section>
@@ -76,35 +114,20 @@
     <div class="cards">
       <article class="card">
         <h3>Containment Session (1:1)</h3>
-        <p>
-          Für Entscheidung, Übergang, Klärung, Konflikt und Druck.
-          Ein klarer Rahmen, in dem wieder Entscheidungsfähigkeit entsteht.
-        </p>
-        <p style="margin-top:10px;">
-          <a href="mailto:nh@nikihager.com?subject=Containment%201:1">Termin anfragen</a>
-        </p>
+        <p>Für Entscheidung, Übergang, Klärung, Konflikt und Druck. Ein klarer Rahmen, in dem wieder Entscheidungsfähigkeit entsteht.</p>
+        <p style="margin-top:10px;"><a href="#top" onclick="document.getElementById('ctaEmail').click();">Termin anfragen</a></p>
       </article>
 
       <article class="card">
         <h3>Leadership & Verantwortung</h3>
-        <p>
-          Für Führungskräfte in komplexen Situationen:
-          Eskalationen, Rollenwechsel, Verantwortung unter Unsicherheit.
-        </p>
-        <p style="margin-top:10px;">
-          <a href="mailto:nh@nikihager.com?subject=Leadership%20Containment">Gespräch starten</a>
-        </p>
+        <p>Für Führungskräfte in komplexen Situationen: Eskalationen, Rollenwechsel, Verantwortung unter Unsicherheit.</p>
+        <p style="margin-top:10px;"><a href="#top" onclick="document.getElementById('ctaEmail').click();">Gespräch starten</a></p>
       </article>
 
       <article class="card">
         <h3>Organisation & Gruppen</h3>
-        <p>
-          Für Teams und Organisationen:
-          Struktur, Klärung, Entscheidungsfähigkeit im System.
-        </p>
-        <p style="margin-top:10px;">
-          <a href="mailto:nh@nikihager.com?subject=Containment%20Organisation">Kontakt</a>
-        </p>
+        <p>Für Teams und Organisationen: Struktur, Klärung, Entscheidungsfähigkeit im System.</p>
+        <p style="margin-top:10px;"><a href="#top" onclick="document.getElementById('ctaEmail').click();">Kontakt</a></p>
       </article>
     </div>
   </div>
@@ -118,26 +141,17 @@
     <div class="cards">
       <article class="card">
         <h3>1 · Auftrag & Rahmen</h3>
-        <p>
-          Klärung von Kontext, Ziel, Auftrag und Grenzen.
-          Was gehört dazu – und was nicht?
-        </p>
+        <p>Klärung von Kontext, Ziel, Auftrag und Grenzen. Was gehört dazu – und was nicht?</p>
       </article>
 
       <article class="card">
         <h3>2 · Containment</h3>
-        <p>
-          Der Raum hält Komplexität, Emotion und Prozess,
-          ohne zu reduzieren oder zu drängen.
-        </p>
+        <p>Der Raum hält Komplexität, Emotion und Prozess, ohne zu reduzieren oder zu drängen.</p>
       </article>
 
       <article class="card">
         <h3>3 · Entscheidung</h3>
-        <p>
-          Verdichtung auf Entscheidung, Richtung und nächste Schritte.
-          Kein Aktionismus – sondern Klarheit.
-        </p>
+        <p>Verdichtung auf Entscheidung, Richtung und nächste Schritte. Kein Aktionismus – sondern Klarheit.</p>
       </article>
     </div>
   </div>
@@ -150,10 +164,7 @@
 
     <div class="twoCol">
       <div>
-        <p>
-          <strong>Containment</strong> ist keine Methode.
-          Es ist kein Coaching. Keine Therapie. Kein Sparring.
-        </p>
+        <p><strong>Containment</strong> ist keine Methode. Es ist kein Coaching. Keine Therapie. Kein Sparring.</p>
 
         <p>
           Containment ist ein <strong>professionell gehaltener Wirkraum</strong>,
@@ -162,22 +173,12 @@
         </p>
 
         <p>
-          Der Rahmen ist klar –
-          während der Raum für den Klienten <strong>leer, weich und offen</strong> bleibt.
-        </p>
-        
-        <p>
-          Wir analyiserne in 60 Monaten den gesamten Prozess. Emotion wird abgelegt, Prozesse strukturell gespeichert,
-          während der Raum für den Klienten <strong>sich zur Lösung</strong> öffnet.
-        </p>
-        <p>
-          Der Prozess bleibt beim Berater, der Klient ist Entscheidungsfähig.
+          Der Rahmen ist klar – während der Raum für den Klienten <strong>leer, weich und offen</strong> bleibt.
         </p>
 
         <p>
-          Ziel ist nicht Beruhigung,
-          sondern die kompakte Wiederherstellung von Entscheidungsfähigkeit –
-          oft innerhalb von 60 Minuten - und - mit klaren nächsten Schritten.
+          Ziel ist nicht Beruhigung, sondern die kompakte Wiederherstellung von Entscheidungsfähigkeit –
+          oft innerhalb kurzer Zeit, mit klaren nächsten Schritten.
         </p>
       </div>
 
@@ -200,10 +201,9 @@
     </div>
 
     <div class="ctaRow" style="margin-top:20px;">
-      <a class="btn" href="mailto:nh@nikihager.com">Kontakt aufnehmen</a>
+      <a class="btn" href="#top" onclick="document.getElementById('ctaEmail').click();">Kontakt aufnehmen</a>
       <a class="btn btn--ghost" href="#angebote">Zu den Angeboten</a>
     </div>
-
   </div>
 </section>
 
@@ -218,5 +218,40 @@
 </footer>
 
 </main>
+
+<script>
+  (function () {
+    const btn = document.getElementById('ctaEmail');
+    const panel = document.getElementById('heroContact');
+    const close = document.getElementById('ctaClose');
+
+    function openPanel() {
+      panel.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      // Fokus auf erstes Feld
+      const firstInput = panel.querySelector('input, textarea, button');
+      if (firstInput) firstInput.focus({ preventScroll: true });
+    }
+
+    function closePanel() {
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.focus({ preventScroll: true });
+    }
+
+    btn.addEventListener('click', function () {
+      if (panel.hidden) openPanel();
+      else closePanel();
+    });
+
+    close.addEventListener('click', closePanel);
+
+    // ESC schließt
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) closePanel();
+    });
+  })();
+</script>
+
 </body>
 </html>
