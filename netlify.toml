@@ -1,0 +1,89 @@
+[build]
+  publish = "."
+  command = ""
+
+# ---------------------------------------
+# Redirects (kanonisch + schöne URLs)
+# ---------------------------------------
+
+# (Optional) /impressum -> /impressum.html
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/agb"
+  to = "/agb.html"
+  status = 301
+  force = true
+
+# (Optional) Wenn Sie später eine echte Domain nutzen:
+# www -> apex (anpassen, sobald containment.at wirklich live ist)
+# [[redirects]]
+#   from = "https://www.containment.at/*"
+#   to = "https://containment.at/:splat"
+#   status = 301
+#   force = true
+
+# 404 Fallback (wenn keine passende Datei existiert)
+# Hinweis: Das greift sauber, sobald Sie 404.html im Root haben.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ---------------------------------------
+# Security Headers (CSP, HSTS, etc.)
+# ---------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # CSP Baseline:
+    # - Forms funktionieren (form-action 'self')
+    # - Netlify Image CDN funktioniert (img-src 'self' data: blob:)
+    # - Inline-CSS erlaubt (falls Sie kleine inline styles nutzen)
+    # - Keine externen Skripte erlaubt (sehr sicher)
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; upgrade-insecure-requests"
+
+# ---------------------------------------
+# Caching-Strategie (Performance)
+# ---------------------------------------
+
+# HTML: immer aktuell halten (keine „stale“ Deploys)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CSS/JS: moderat cachen (weil Sie Dateinamen aktuell nicht hash-en)
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Assets: Bilder/Fonts hart cachen (wenn Sie sie selten überschreiben)
+# Empfehlung: Wenn Sie Assets später ersetzen, besser Versionierung im Dateinamen (hero.v2.jpg)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Netlify Image CDN: Browser darf stark cachen, Netlify cached ohnehin am Edge
+[[headers]]
+  for = "/.netlify/images*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
