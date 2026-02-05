@@ -12,8 +12,8 @@
   --heroGrey:#6b6f78;
 
   /* Raster / Tiefe */
-  --gridFine: rgba(12,15,20,.09);
-  --gridMajor: rgba(12,15,20,.16);
+  --gridFine: rgba(12,15,20,.063);
+  --gridMajor: rgba(12,15,20,.112);
 }
 
 /* Base */
