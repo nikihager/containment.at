@@ -308,18 +308,18 @@ h2{font-size:26px; margin:0 0 16px}
   position:absolute;
   inset:0;
   background-image:
-    linear-gradient(
-      to right,
-      rgba(12,15,20,0.1) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(12,15,20,0.1) 1px,
-      transparent 1px
-    );
-  background-size: 48px 48px; /* Rastergröße */
-  opacity: .65;               /* extrem fein */
+    /* fein */
+    linear-gradient(to right, rgba(12,15,20,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12,15,20,.06) 1px, transparent 1px),
+    /* major lines */
+    linear-gradient(to right, rgba(12,15,20,.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12,15,20,.12) 1px, transparent 1px);
+  background-size:
+    36px 36px,
+    36px 36px,
+    144px 144px,
+    144px 144px;
+  opacity:.9;
   pointer-events:none;
   z-index:0;
 }
