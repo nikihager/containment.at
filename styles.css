@@ -43,7 +43,7 @@ a{color:inherit; text-underline-offset:3px}
   line-height:0; /* kill baseline whitespace */
 }
 .brand img{
-  height: 96px;   /* führt */
+  height: 76px;   /* führt */
   width:auto;
   display:block;
   opacity:1;
