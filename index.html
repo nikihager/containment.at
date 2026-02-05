@@ -33,60 +33,75 @@
   <div class="container hero__grid">
 
     <!-- LEFT -->
-    <div class="hero__content">
+    <div class="heroLeft">
 
-      <h1 class="hero__values">
-        <span class="fine">Struktur.</span><br>
-        <span class="fine">Präsenz.</span><br>
-        <span class="fine">Verantwortung.</span><br>
-        <span class="strong">Entscheidung ist LÖSUNG.</span>
-      </h1>
+  <!-- STATE A: HERO COPY -->
+  <div id="heroCopy" class="heroState is-active">
+    <div class="hero__values">
+      <span class="fine">Struktur.</span><br>
+      <span class="fine">Präsenz.</span><br>
+      <span class="fine">Verantwortung.</span><br>
+      <span class="strong">LÖSUNG.</span>
+    </div>
 
-      <p class="hero__claim">
-        Contaiment.at ist der Raum, - 
-        in dem Entscheidungen - <br>
-        <strong>in 60 Min. wieder klar & möglich werden.</strong>
+    <p class="hero__claim">
+      Dein Raum, in dem Entscheidungen<br>
+      wieder möglich werden.
+    </p>
+
+    <p class="lead">
+      Containment ist kein Coaching. Keine Therapie. Kein reines Sparring.<br>
+      Es ist ein <strong>professionell gehaltener Wirkraum</strong>, in dem in kurzer Zeit
+      Klarheit, Entscheidung und nächste Schritte entstehen – ohne Komplexität zu reduzieren
+      oder zu übergehen.
+    </p>
+
+    <div class="ctaRow">
+      <a class="btn" href="#kontakt" id="emailBtn">E-Mail</a>
+      <a class="btn btn--ghost" href="tel:+4369911881000">Anrufen</a>
+      <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+
+    <div class="heroMeta">
+      <div class="heroMeta__line">Online · Zoom · Live in Wien</div>
+      <div class="heroMeta__line heroMeta__price"><strong>260,00 € / Stunde</strong></div>
+      <div class="heroMeta__line">Unternehmensberatung · Containment · Coaching · Klarheit & Struktur</div>
+    </div>
+  </div>
+
+  <!-- STATE B: CONTACT FORM -->
+  <div id="heroForm" class="heroState" aria-hidden="true">
+    <div class="heroPanel">
+      <p class="heroForm__promise">
+        <strong>Containment.at ist der Raum,</strong><br>
+        in dem Entscheidungen –<br>
+        <strong>in 60 Min. wieder klar &amp; möglich werden.</strong>
       </p>
 
-      <p class="lead">
-        Kein 50-h-Coaching, systemische Therapie, kein schlichtes Business-Sparring.
-        Diese Kompetenzen bringt der Berater mit. Online oder Live.<br><br>
+      <form class="contactForm" action="mailto:nh@nikihager.com" method="get">
+        <div class="field">
+          <label class="field__label" for="subject">Betreff</label>
+          <input class="field__input" id="subject" name="subject" type="text" placeholder="z.B. Containment – Entscheidung in 60 Minuten" required>
+        </div>
 
-Wir analysieren blitzartig Prozesse</strong>, damit in kurzer Zeit Klarheit entsteht –
-        für <strong>Entscheidung, privat oder beruflich, einzeln oder in Gruppen </strong> 
-  ohne die Komplexität zu reduzieren oder zu übergehen.
-      </p>
+        <div class="field">
+          <label class="field__label" for="body">Anliegen in wenigen Worten</label>
+          <textarea class="field__textarea" id="body" name="body" rows="5" placeholder="Worum geht es – und was soll nach 60 Minuten klar sein?" required></textarea>
+        </div>
 
-      <!-- CTA (scheinbare Auswahl, E-Mail führt links) -->
-      <div class="ctaRow">
-        <button class="btn" type="button" id="ctaEmail" aria-controls="heroContact" aria-expanded="false">E-Mail</button>
-        <a class="btn btn--ghost" href="tel:+4369911881000">Anrufen</a>
-        <a class="btn btn--ghost" href="https://wa.me/4369911881000" target="_blank" rel="noopener">WhatsApp</a>
+        <div class="formRow">
+          <button class="btn" type="submit">Senden</button>
+          <button class="btn btn--ghost" type="button" id="cancelForm">Abbrechen</button>
+        </div>
+      </form>
+
+      <div class="heroMeta" style="margin-top:12px;">
+        <div class="heroMeta__line">Online · Zoom · Live in Wien · <strong>260,00 € / Stunde</strong></div>
       </div>
+    </div>
+  </div>
 
-      <!-- CONTACT PANEL (ersetzt Mail/Tel/Ort Block) -->
-      <div id="heroContact" class="heroPanel" hidden>
-        <form class="contactForm" action="mailto:nh@nikihager.com" method="post" enctype="text/plain">
-          <label class="field">
-            <span class="field__label">Betreff</span>
-            <input class="field__input" type="text" name="subject" placeholder="z. B. Entscheidung / Übergang / Konflikt" required>
-          </label>
-
-          <label class="field">
-            <span class="field__label">Anliegen in wenigen Worten</span>
-            <textarea class="field__textarea" name="body" rows="4" placeholder="2–3 Sätze. Worum geht es – und was soll am Ende klar sein?" required></textarea>
-          </label>
-
-          <div class="formRow">
-            <button class="btn" type="submit">Senden</button>
-            <button class="btn btn--ghost" type="button" id="ctaClose">Schließen</button>
-          </div>
-
-          <p class="fineprint">
-            Hinweis: Dein Mail-Programm öffnet sich zum Senden.
-          </p>
-        </form>
-      </div>
+</div>
 
       <!-- FRAME SUMMARY (statt Mail/Tel/Ort) -->
       <div class="heroMeta" aria-label="Rahmen">
