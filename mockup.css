@@ -179,9 +179,18 @@ body::before{
 
 .hero__grid{
   display:grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 34px;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 18px;
   align-items:center;
+}
+.hero__visual{
+  justify-content: flex-start; /* statt center */
+  padding-left: 6px;
+}
+
+.hero__visual img{
+  width: min(420px, 92%);
+  transform: translateX(-10px); /* << näher zur Typo */
 }
 
 .hero__title{
