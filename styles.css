@@ -1,58 +1,53 @@
 /* ==========================================================
-   containment.at — Mockup Styles (Freeze v1)
-   Ziel: Autorität • Ruhe • Weißraum • fließendes Portrait
+   containment.at — Mockup Freeze (EXAKT-Look v1)
+   Ziel: Papier-Sheet · Serif-Hero · Sans-Header · Gold-Rule
+   Raster sehr subtil · Portrait weich & eingebettet
    ========================================================== */
 
-/* --------------------------
-   1) TOKENS
-   -------------------------- */
 :root{
-  /* Whites */
-  --bg: #f7f5f1;       /* Außenraum */
-  --sheet: #fbfaf8;    /* Papierfläche */
-  --white: #ffffff;
+  /* Colors (Mockup) */
+  --bg:    #f4f1ed;
+  --sheet: #fbfaf8;
 
-  /* Ink */
-  --ink: #1d1b18;
+  --ink:   #171614;
   --muted: #6b6f78;
 
-  /* Lines */
-  --line: rgba(29,27,24,.12);
-  --lineSoft: rgba(29,27,24,.08);
+  --line:      rgba(23,22,20,.12);
+  --lineSoft:  rgba(23,22,20,.08);
 
-  /* Accent (Goldlinie im Mockup) */
   --accent: #c7a06a;
 
-  /* Typography (Mockup: Serif für Headlines) */
-  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  /* Typography */
+  --serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --sans:  "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Layout */
   --max: 1120px;
-  --pad: 28px;
+  --pad: 30px;
 
-  /* Radius / Shadows */
+  /* Radius & Shadows */
   --r: 18px;
   --rLg: 26px;
-  --shadowSheet: 0 28px 90px rgba(0,0,0,.10);
 
-  /* Type scale */
-  --h1: clamp(2.4rem, 4.6vw, 3.4rem);
-  --h2: clamp(1.6rem, 2.2vw, 2.1rem);
-  --p: 1rem;
+  /* Paper shadow tuned to Mockup */
+  --shadowSheet:
+    0 45px 120px rgba(0,0,0,.12),
+    0 8px 30px rgba(0,0,0,.08);
 
-  /* Grid (sehr subtil!) */
-  --gridFine: rgba(29,27,24,.05);
-  --gridMajor: rgba(29,27,24,.08);
+  /* Type scale tuned */
+  --h1: clamp(3.3rem, 5.2vw, 4.35rem);
+  --h2: clamp(1.75rem, 2.25vw, 2.15rem);
+
+  /* Grid (VERY subtle like mockup) */
+  --gridFine: rgba(23,22,20,.045);
+  --gridMajor: rgba(23,22,20,.07);
   --gridFineSize: 34px;
   --gridMajorSize: 136px;
 }
 
-/* --------------------------
-   2) BASE
-   -------------------------- */
-*{box-sizing:border-box}
-html,body{height:100%}
+/* Base */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
 body{
   margin:0;
@@ -64,28 +59,21 @@ body{
   text-rendering: geometricPrecision;
 }
 
-a{color:inherit;text-underline-offset:3px}
-img{display:block;max-width:100%;height:auto}
+a{ color:inherit; text-underline-offset:3px; }
+img{ display:block; max-width:100%; height:auto; }
 
-/* Screenreader helper */
 .sr-only{
-  position:absolute;
-  width:1px;height:1px;
-  padding:0;margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;border:0;
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
 
-/* --------------------------
-   3) GLOBAL GRID (Mockup: nur Hauch)
-   -------------------------- */
+/* Outside subtle grid like mockup */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:-1;
+  z-index:-2;
 
   background-image:
     linear-gradient(to right, var(--gridFine) 1px, transparent 1px),
@@ -99,40 +87,55 @@ body::before{
     var(--gridMajorSize) var(--gridMajorSize),
     var(--gridMajorSize) var(--gridMajorSize);
 
-  opacity: .12; /* <<<<< entscheidend: Mockup sehr subtil */
+  opacity: .14;
 }
 
-/* --------------------------
-   4) PAGE SHEET (Mockup „Papier“)
-   -------------------------- */
-.page{
+/* Wrap centers the sheet */
+.wrap{
+  padding: 34px 18px 70px;
+}
+
+/* Paper sheet */
+.sheet{
   max-width: var(--max);
-  margin: 28px auto 44px;
-  background: rgba(251,250,248,.92);
+  margin: 0 auto;
+  background: var(--sheet);
   border: 1px solid var(--lineSoft);
   border-radius: var(--rLg);
   box-shadow: var(--shadowSheet);
-  overflow: hidden;
+  overflow:hidden;
+  position:relative;
 }
 
-/* --------------------------
-   5) TOPBAR
-   -------------------------- */
+/* Soft paper texture (subtle, no assets needed) */
+.sheet::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.22;
+  background:
+    radial-gradient(1200px 700px at 10% 0%, rgba(255,255,255,.75), rgba(255,255,255,0) 55%),
+    radial-gradient(900px 600px at 90% 10%, rgba(255,255,255,.7), rgba(255,255,255,0) 55%),
+    linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,0) 45%);
+}
+
+.sheet > *{ position:relative; z-index:1; }
+
+/* Topbar */
 .topbar{
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: color-mix(in srgb, var(--sheet) 88%, transparent);
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--lineSoft);
+  background: rgba(251,250,248,.78);
+  backdrop-filter: blur(10px);
 }
 
 .topbar__inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding: 18px var(--pad);
   gap: 18px;
+  padding: 18px var(--pad);
 }
 
 /* Brand */
@@ -145,24 +148,40 @@ body::before{
 .brand__mark{
   width: 34px;
   height: 34px;
-  border: 1.5px solid var(--line);
   border-radius: 6px;
-  background: transparent;
+  border: 1.6px solid rgba(23,22,20,.18);
+  background: rgba(255,255,255,.25);
 }
-.brand__text{display:flex;flex-direction:column;line-height:1.1}
-.brand__name{font-weight:700;letter-spacing:.01em}
-.brand__tag{font-size:.78rem;color:var(--muted)}
+.brand__text{ display:flex; flex-direction:column; line-height:1.15; }
+.brand__name{
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: .02em;
+  font-size: 1.02rem;
+}
+.brand__tag{
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--muted);
+  font-size: .82rem;
+}
 
 /* Nav */
-.nav{display:flex;gap:14px;align-items:center}
+.nav{
+  display:flex;
+  gap: 22px;
+  align-items:center;
+}
 .nav a{
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: .02em;
+  font-size: .98rem;
   text-decoration:none;
   color: var(--muted);
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-weight: 500;
 }
-.nav a:hover{background: rgba(0,0,0,.04); color: var(--ink)}
+.nav a:hover{ color: var(--ink); }
 
 /* Mobile toggle */
 .navToggle{
@@ -175,66 +194,41 @@ body::before{
 }
 .navToggle span{
   display:block;
-  width: 18px;
-  height: 2px;
+  width: 18px; height: 2px;
   background: var(--ink);
   margin: 4px auto;
   opacity:.85;
 }
 
-/* --------------------------
-   6) SECTIONS
-   -------------------------- */
-.section{padding: 44px var(--pad)}
-.section--center{text-align:center}
+/* Sections */
+.section{ padding: 54px var(--pad); }
+.section--center{ text-align:center; }
 
-/* Headlines */
-.h2{
-  font-family: var(--serif);
-  font-size: var(--h2);
-  font-weight: 500;
-  margin: 0 0 16px;
-  letter-spacing: -0.01em;
+/* Hero */
+.hero{
+  padding: 54px var(--pad) 34px;
 }
-.h2--center{text-align:center}
-
-/* Lede */
-.lede{
-  color: var(--muted);
-  margin: 0 0 10px;
-  max-width: 72ch;
-}
-.section--center .lede{margin-left:auto;margin-right:auto}
-
-.lede--strong{
-  font-family: var(--serif);
-  color: var(--ink);
-  margin-top: 12px;
-}
-
-/* --------------------------
-   7) HERO
-   -------------------------- */
-.hero{padding: 34px var(--pad) 26px}
 
 .hero__grid{
   display:grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 34px;
+  grid-template-columns: 1.35fr 1fr; /* closer like mockup */
+  gap: 18px;
   align-items:center;
 }
 
+/* Big Serif values */
 .hero__title{
   font-family: var(--serif);
   font-size: var(--h1);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.06;
+  line-height: 1.02;
   margin: 0 0 14px;
 }
 
+/* Gold rule */
 .rule{
-  width: 68px;
+  width: 64px;
   height: 2px;
   background: var(--accent);
   border-radius: 2px;
@@ -242,89 +236,126 @@ body::before{
 }
 
 .hero__claim{
-  color: var(--muted);
   margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 1.02rem;
   max-width: 52ch;
-  font-size: var(--p);
 }
 
 .hero__price{
   margin: 0;
+  font-size: 1.05rem;
   color: var(--ink);
-  font-size: var(--p);
 }
-.hero__price strong{font-weight:700}
-.sep{color: var(--muted)}
+.hero__price strong{ font-weight: 650; }
+.sep{ color: var(--muted); }
 
-/* Mockup: Mobile buttons unter Preis */
+/* Mobile actions (mockup) */
 .hero__actions{
   display:none;
   gap: 10px;
   flex-wrap:wrap;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
-/* Portrait: fließend, soft edge */
+/* Portrait container */
 .hero__visual{
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:flex-end;
   min-height: 420px;
-}
-.hero__visual img{
-  width: min(420px, 92%);
-  filter: saturate(1.02) contrast(1.02);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 64%, rgba(0,0,0,0) 100%);
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 64%, rgba(0,0,0,0) 100%);
+  padding-left: 6px;
+  position:relative;
 }
 
-/* --------------------------
-   8) CARDS (Mockup)
-   -------------------------- */
+/* Soft embed vignette like mockup */
+.hero__visual::after{
+  content:"";
+  position:absolute;
+  inset: -60px -40px -90px -40px;
+  pointer-events:none;
+  background: radial-gradient(closest-side, rgba(251,250,248,0) 58%, rgba(251,250,248,.92) 100%);
+}
+
+/* Portrait itself */
+.hero__visual img{
+  width: min(470px, 96%);
+  transform: translateX(-12px);
+  filter: saturate(1.02) contrast(1.02);
+
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 63%, rgba(0,0,0,0) 100%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 63%, rgba(0,0,0,0) 100%);
+}
+
+/* Containment center block */
+.h2{
+  font-family: var(--serif);
+  font-size: var(--h2);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+}
+
+.lede{
+  margin: 0 auto 10px;
+  max-width: 74ch;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+.lede--strong{
+  font-family: var(--serif);
+  color: var(--ink);
+  margin-top: 14px;
+  font-size: 1.18rem;
+}
+
+/* Cards */
 .cards{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .card{
   border: 1px solid var(--lineSoft);
-  border-radius: var(--r);
   background: rgba(255,255,255,.55);
-  padding: 18px;
+  border-radius: var(--r);
+  padding: 18px 18px 16px;
 }
 
 .card h3{
   font-family: var(--serif);
   font-weight: 500;
+  font-size: 1.35rem;
   margin: 0 0 10px;
-  font-size: 1.25rem;
+  line-height: 1.15;
 }
 
-.list{
-  margin: 0 0 14px;
-  padding-left: 18px;
+.card__body p{
+  margin: 0 0 6px;
   color: var(--muted);
+  font-size: .98rem;
 }
-.list li{margin: 6px 0}
+.card__body p:last-child{ margin-bottom: 14px; }
 
-/* Mockup Button in Card */
+/* Card button: light grey pill */
 .card__btn{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap: 12px;
   text-decoration:none;
-  border: 1px solid var(--lineSoft);
-  background: rgba(255,255,255,.65);
-  padding: 10px 12px;
+  border: 1px solid rgba(23,22,20,.14);
+  background: rgba(255,255,255,.7);
   border-radius: 12px;
+  padding: 10px 12px;
+  font-family: var(--sans);
   font-weight: 500;
+  color: var(--ink);
 }
 
-/* --------------------------
-   9) BUTTONS
-   -------------------------- */
+/* Buttons */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -335,31 +366,29 @@ body::before{
   background: var(--ink);
   color: var(--sheet);
   text-decoration:none;
+  font-family: var(--sans);
   font-weight: 600;
   cursor:pointer;
 }
 
 .btn--pill{
-  background: rgba(255,255,255,.55);
+  background: rgba(255,255,255,.6);
   color: var(--ink);
-  border-color: var(--lineSoft);
+  border-color: rgba(23,22,20,.14);
   padding: 10px 12px;
   border-radius: 12px;
 }
 
 .btn--cta{
-  border-color: var(--lineSoft);
-  background: rgba(255,255,255,.55);
+  border-color: rgba(23,22,20,.14);
+  background: rgba(255,255,255,.6);
   color: var(--ink);
   padding: 14px 16px;
   border-radius: 12px;
   min-width: min(520px, 92%);
 }
-.section--center .btn--cta{margin-left:auto;margin-right:auto}
 
-/* --------------------------
-   10) CONTACT PANEL
-   -------------------------- */
+/* Contact panel */
 .contactPanel{
   margin: 18px auto 0;
   max-width: 720px;
@@ -370,36 +399,33 @@ body::before{
   background: rgba(255,255,255,.65);
 }
 
-.form{display:grid;gap:12px}
-
-.field{display:grid;gap:6px}
+.form{ display:grid; gap: 12px; }
+.field{ display:grid; gap: 6px; }
 .field span{
-  font-size: .78rem;
+  font-size: .82rem;
   color: var(--muted);
   letter-spacing: .02em;
 }
-.field input,.field textarea{
-  border: 1px solid var(--line);
-  background: var(--white);
+.field input, .field textarea{
+  border: 1px solid rgba(23,22,20,.14);
+  background: #fff;
   border-radius: 12px;
   padding: 12px;
   font: inherit;
   outline: none;
 }
-.field input:focus,.field textarea:focus{
-  border-color: rgba(29,27,24,.25);
-  box-shadow: 0 0 0 4px rgba(29,27,24,.06);
+.field input:focus, .field textarea:focus{
+  border-color: rgba(23,22,20,.26);
+  box-shadow: 0 0 0 4px rgba(23,22,20,.06);
 }
+.form__row{ display:flex; gap: 10px; flex-wrap:wrap; }
 
-.form__row{display:flex;gap:10px;flex-wrap:wrap}
-
-/* --------------------------
-   11) FOOTER
-   -------------------------- */
+/* Footer */
 .footer{
   border-top: 1px solid var(--lineSoft);
   padding: 18px var(--pad);
   color: var(--muted);
+  background: rgba(251,250,248,.55);
 }
 
 .footer__inner{
@@ -410,34 +436,23 @@ body::before{
   flex-wrap:wrap;
 }
 
-.footer__links{display:flex;gap:10px;align-items:center}
-.footer__links a{text-decoration:none}
-.footer__links a:hover{text-decoration:underline}
+.footer__links{ display:flex; gap: 10px; align-items:center; }
+.footer__links a{ text-decoration:none; }
+.footer__links a:hover{ text-decoration:underline; }
 
-/* --------------------------
-   12) RESPONSIVE (Mockup Mobile)
-   -------------------------- */
+/* Responsive */
 @media (max-width: 920px){
   :root{ --pad: 18px; }
 
-  /* Sheet wird auf Mobile „full width“ wie im Mockup */
-  .page{
-    margin: 0;
+  .wrap{ padding: 0; }
+  .sheet{
     border-radius: 0;
-    border-left: 0;
-    border-right: 0;
+    border-left:0;
+    border-right:0;
   }
 
-  .hero__grid{grid-template-columns: 1fr; gap: 16px;}
-  .hero__visual{min-height: 320px;}
-
-  /* Mobile actions sichtbar */
-  .hero__actions{display:flex}
-
-  /* Mobile nav dropdown */
-  .navToggle{display:inline-block}
-
-  .topbar__inner{position:relative}
+  .navToggle{ display:inline-block; }
+  .topbar__inner{ position:relative; }
 
   .nav{
     display:none;
@@ -449,11 +464,18 @@ body::before{
     border-radius: 14px;
     padding: 10px;
     box-shadow: 0 18px 60px rgba(0,0,0,.10);
-    flex-direction: column;
+    flex-direction:column;
     min-width: 220px;
+    gap: 10px;
   }
-  .nav.is-open{display:flex}
-  .nav a{padding: 12px 12px}
+  .nav.is-open{ display:flex; }
 
-  .cards{grid-template-columns: 1fr;}
+  .hero{ padding: 40px var(--pad) 26px; }
+  .hero__grid{ grid-template-columns: 1fr; gap: 16px; }
+  .hero__visual{ min-height: 320px; padding-left: 0; }
+  .hero__visual img{ transform: translateX(0); width: min(420px, 96%); }
+
+  .hero__actions{ display:flex; }
+
+  .cards{ grid-template-columns: 1fr; }
 }
