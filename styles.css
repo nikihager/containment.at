@@ -5,16 +5,18 @@
    ========================================================== */
 
 :root{
-  /* Colors (Mockup) */
-  --bg:    #f4f1ed;
-  --sheet: #fbfaf8;
+  /* HELLER, LUFTIGER – Mockup-Feinschliff */
+  --bg:    #f8f6f3;   /* Außenraum – sehr hell */
+  --sheet: #fdfcfb;  /* Papier – fast reinweiß */
 
   --ink:   #171614;
   --muted: #6b6f78;
 
-  --line:      rgba(23,22,20,.12);
-  --lineSoft:  rgba(23,22,20,.08);
+  --line:      rgba(23,22,20,.10);
+  --lineSoft:  rgba(23,22,20,.06);
 
+  --accent: #c7a06a;
+}
   --accent: #c7a06a;
 
   /* Typography */
@@ -114,7 +116,7 @@ body::before{
   inset:0;
   pointer-events:none;
   z-index:0;
-  opacity:.22;
+  opacity:.32;
   background:
     radial-gradient(1200px 700px at 10% 0%, rgba(255,255,255,.75), rgba(255,255,255,0) 55%),
     radial-gradient(900px 600px at 90% 10%, rgba(255,255,255,.7), rgba(255,255,255,0) 55%),
@@ -128,6 +130,13 @@ body::before{
   border-bottom: 1px solid var(--lineSoft);
   background: rgba(251,250,248,.78);
   backdrop-filter: blur(10px);
+}.sheet{
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,.92),
+      rgba(255,255,255,.88)
+    ),
+    var(--sheet);
 }
 
 .topbar__inner{
